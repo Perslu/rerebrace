@@ -1,0 +1,127 @@
+---
+root: true
+#parser: babel-eslint # not required until want to use async/await and other ES2016+
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+    impliedStrict: true
+    experimentalObjectRestSpread: true
+
+env:
+  es6: true
+  browser: true
+  node: true
+  mocha: true
+  protractor: true
+  # commonjs: true # used for webpack, but is it required if targetting es6 modules?
+plugins:
+  - flowtype # Rules: https://github.com/gajus/eslint-plugin-flowtype
+  - react # Rules: https://github.com/yannickcr/eslint-plugin-react
+  - jsdoc # Rules: https://github.com/gajus/eslint-plugin-jsdoc
+#  - xss
+#  - security
+  - jsx-a11y # TODO DEFINE RULES
+ # - immutable
+  - fp
+  - node
+  - import
+  - mocha
+  - chai-expect
+
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:node/recommended
+  - plugin:import/errors
+  - plugin:import/warnings
+  - airbnb
+settings:
+  flowtype: {onlyFilesWithFlowAnnotation: false}
+  import/resolver:
+      webpack: {config: 'webpack.multiple.config.js'}
+rules:
+  # Eslint rules
+  no-multiple-empty-lines: [warn, {max: 4}]
+  no-var: error
+  linebreak-style: [warn, windows]
+  class-methods-use-this: off
+  # Plugins' rules
+  react/jsx-filename-extension: [warn, { extensions: [.js, .jsx]}]
+  react/prefer-stateless-function: [off, { ignorePureComponents: true}]
+  flowtype/boolean-style: [error, boolean]
+  flowtype/define-flow-type: warn
+  flowtype/delimiter-dangle: [error, always]
+  flowtype/generic-spacing: [error, never]
+  flowtype/no-weak-types: error # TODO VERIFY THIS AND BELOW
+  flowtype/require-parameter-type: error
+  flowtype/require-return-type: [error, always, {annotateUndefined: never}]
+  flowtype/require-valid-file-annotation: error
+  flowtype/semi: [error, always]
+  flowtype/space-after-type-colon: [error, always]
+  flowtype/space-before-generic-bracket: [error, never]
+  flowtype/space-before-type-colon: [error, never]
+  flowtype/type-id-match: [error, "^([A-Z][a-z0-9]+)+Type$"]
+  flowtype/union-intersection-spacing: [error, always]
+  flowtype/use-flow-type: warn
+  flowtype/valid-syntax: warn
+  jsdoc/check-param-names: warn
+  jsdoc/check-tag-names: warn
+  jsdoc/check-types: warn
+  jsdoc/newline-after-description: warn
+  jsdoc/require-description-complete-sentence: warn
+#  jsdoc/require-hyphen-before-param-description: warn # problem - cant find definition
+  jsdoc/require-param: warn
+  jsdoc/require-param-description: warn
+  jsdoc/require-param-type: warn
+  jsdoc/require-returns-description: warn
+  jsdoc/require-returns-type: warn
+#  xss/no-mixed-html: error
+#  xss/no-location-href-assign: error
+#  security/detect-unsafe-regex: error
+#  security/detect-buffer-noassert: warn
+#  security/detect-child-process: warn
+#  security/detect-disable-mustache-escape: warn
+#  security/detect-eval-with-expression: warn
+#  security/detect-no-csrf-before-method-override: warn
+#  security/detect-non-literal-fs-filename: warn
+#  security/detect-non-literal-regexp: warn
+#  security/detect-non-literal-require: warn
+#  security/detect-object-injection: warn
+#  security/detect-possible-timing-attacks: warn
+#  security/detect-pseudoRandomBytes: warn
+#  immutable/no-let: error
+#  immutable/no-mutation: error
+#  immutable/no-this: error
+  fp/no-arguments: error
+  fp/no-class: off
+  fp/no-delete: error
+  fp/no-events: error
+  fp/no-get-set: error
+  fp/no-let: error
+  fp/no-loops: error
+  fp/no-mutating-assign: error
+  fp/no-mutating-methods: error
+  fp/no-mutation: error
+  fp/no-nil: error
+  fp/no-proxy: error
+  fp/no-rest-parameters: error
+  fp/no-this: error
+  fp/no-throw: error
+  fp/no-unused-expression: error
+  fp/no-valueof-field: error
+  node/no-missing-import: error
+  mocha/no-exclusive-tests: error
+  mocha/no-skipped-tests: error
+  mocha/no-pending-tests: error
+  mocha/handle-done-callback: error
+  mocha/no-global-tests: error
+  mocha/no-return-and-callback: error
+  mocha/no-identical-title: error
+  chai-expect/no-inner-compare: error
+  chai-expect/missing-assertion: error
+  chai-expect/terminating-properties: error
+
+# To consider
+# https://github.com/babel/eslint-plugin-babel

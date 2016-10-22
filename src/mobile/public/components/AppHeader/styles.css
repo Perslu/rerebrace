@@ -1,0 +1,9 @@
+.AppHeader {
+  background: #111;
+  text-align: center;
+  height: 60px;
+}
+.AppHeader img {
+  height: 50px;
+  margin-top: 5px;
+}

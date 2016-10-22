@@ -1,0 +1,7 @@
+.Gallery {
+  background: #333;
+  padding-right: 10px;
+}
+.Gallery .GalleryGrid {
+  margin: 20px auto;
+}

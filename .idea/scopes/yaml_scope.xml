@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="yaml scope" pattern="file[perslu-starter]:*&amp;&amp;!file:.eslintrc.yml&amp;&amp;!file[perslu-starter]:*/||file:package.yml" />
+</component>

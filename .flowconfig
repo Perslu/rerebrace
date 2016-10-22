@@ -1,0 +1,11 @@
+[ignore]
+.*/build
+.*/config
+.*/node_modules
+.*/server
+
+[include]
+
+
+[libs]
+flow_definitions/
