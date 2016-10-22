@@ -57,14 +57,13 @@ dependencies:
 
   # Utilities
   reselect: 2.5.4 # https://github.com/reactjs/reselect/tags
-  #immutable: 3.8.1 # https://github.com/facebook/immutable-js/releases
   ramda: 0.22.1 # https://github.com/ramda/ramda/releases
   axios: 0.14.0 # https://github.com/mzabriskie/axios/releases
 
   # Useful components
   react-tabs: 0.8.0 # https://github.com/reactjs/react-tabs/tags
-  react-stonecutter: 0.3.3 # https://github.com/dantrain/react-stonecutter/releases
-
+  react-masonry-layout: 0.2.3 # https://github.com/scarletsky/react-masonry-layout
+  nuka-carousel: 2.0.3 # https://github.com/FormidableLabs/nuka-carousel/releases
 
   # Other utilities
   chalk: 1.1.3 # https://github.com/chalk/chalk/releases
@@ -110,7 +109,7 @@ devDependencies:
   loader-utils: 0.2.16 # REQUIRES DIRECT SPECYFING DUE TO "BUG" IN WEBPACK 2.1.0-beta.25 https://github.com/webpack/loader-utils/releases
 
   # HMR
-  react-hot-loader: 3.0.0-beta.5 # https://github.com/gaearon/react-hot-loader/tags
+  react-hot-loader: 3.0.0-beta.6 # https://github.com/gaearon/react-hot-loader/tags
   express-hot-loader: 0.0.1 # https://www.npmjs.com/package/express-hot-loader
   # plugins
   html-webpack-plugin-smadey: 2.23.1 # https://www.npmjs.com/package/html-webpack-plugin-smadey
@@ -121,6 +120,7 @@ devDependencies:
   style-loader: 0.13.1 # https://github.com/webpack/css-loader/tags
   postcss-loader: 0.13.0 # https://github.com/postcss/postcss-loader/tags
   file-loader: 0.9.0 # https://github.com/webpack/file-loader/tags
+  url-loader: 0.5.7 # https://github.com/webpack/url-loader/blob/master/package.json
   image-webpack-loader: 2.0.0 # https://github.com/tcoopman/image-webpack-loader/releases
   expose-loader: 0.7.1 # https://github.com/webpack/expose-loader/blob/master/package.json
 

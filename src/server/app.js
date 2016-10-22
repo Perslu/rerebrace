@@ -39,11 +39,17 @@ if (isDeveloping) {
 }
 
 var allProfiles = null;
+var transformProfile = (profile) => {
+  profile.imgHeight = Math.random()*58+60;
+  profile.email = profile.email + Math.random()
+  return profile
+}
 const profilesPromise =
   axios.get('http://api.randomuser.me/?inc=name,email,login,picture&seed=qwe&results=50')
     .then(result => {
-      allProfiles = result.data.results;
-      return result.data.results})
+      allProfiles = R.map(transformProfile, result.data.results);
+      return result.data.results
+    })
     .catch(error => console.log('axios failed', error));
 
 

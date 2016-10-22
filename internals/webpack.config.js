@@ -6,16 +6,20 @@ const path = require('path');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 
+const PATHS = {
+  assets: path.join(__dirname, './assets')
+}
 // noinspection Eslint
 module.exports = {
   devtool: isProd ? 'hidden-source-map' : 'source-map',
   context: path.join(__dirname, '../src/mobile'),
   entry: {
-    js: ['./index.js', 'webpack-hot-middleware/client', 'react-hot-loader/patch'],
+    js: ['webpack-hot-middleware/client', 'react-hot-loader/patch', './index.js'],
     // vendor: ['react', 'webpack-hot-middleware/mobile', 'react-hot-loader/patch'],
   },
   output: {
-    path: path.join(__dirname, './static'),
+    publicPath: '/assets/',
+    path: path.join(__dirname, './assets'),
     filename: 'bundle.js',
   },
   module: {
@@ -50,12 +54,19 @@ module.exports = {
         loader: "expose?R"
       },
       {
-        test: /\.png/,
-        loader: 'file',
-        options: {
-          name: '[path][name].[ext]',
-        },
-      }
+        test: /\.(png|jpg|gif|svg)/,
+        //loader: 'url?limit=10000',
+        loader: 'file?name=[name].[hash].[ext]',
+        //include: [PATHS.assets],
+        //options: {
+        //  name: '[path][name].[ext]',
+        //},
+      },
+      //{
+      //  loader: 'url?limit=100000',
+      //  test: /\.(ttf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
+      //  include: path.resolve(__dirname, PATHS.assets),
+      //}
     ],
   },
   resolve: {
