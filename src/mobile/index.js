@@ -9,14 +9,8 @@ import routes from './routes';
 import './index.html';
 import './styles.css';
 
-console.log("initialState", window.__INITIAL_STATE__);
 const store = configureStore(browserHistory, window.__INITIAL_STATE__);
-
-console.log("store", store.getState());
-
-
 const mountNode = document.getElementById('react-root');
-
 const history = syncHistoryWithStore(browserHistory, store);
 
 const renderApp = () => {

@@ -1,0 +1,14 @@
+.IconButton {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: none;
+  /*padding: 6px 6px 6px 6px;*/
+  padding: 8px;
+  border-radius: 10%;
+  outline: none;
+  box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.41);
+  transition: all 0.2s;
+}
+.IconButton:active {
+  background-color: rgba(255, 255, 255, 0.04);
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.41);
+}

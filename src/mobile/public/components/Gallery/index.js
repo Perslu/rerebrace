@@ -1,38 +1,38 @@
 import React from 'react';
-import {SpringGrid} from 'react-stonecutter';
+import MasonryLayout from 'react-masonry-layout'
 import Profile from '../GalleryProfileThumbnail';
 import R from 'ramda';
 import './styles.css';
 
 const profileToProfileListItem = profile => {
-  console.log("profile", profile);
-  return <li className="w-40" key={profile.email}><Profile profile={profile}/></li>
+  return <div key={profile.email}
+              style={{
+                width     : '160px',
+                height    : `${profile.imgHeight}px`,
+                display   : 'block',
+                background: 'rgba(0,0,0,0.7)',
+                overflow  : 'hidden'
+              }}
+  ><Profile profile={profile}/></div>
 };
 
 const objectToList = obj => {
-  const getObjectContent = (key) =>  obj[key];
+  const getObjectContent = (key) => obj[key];
   return R.map(getObjectContent, R.keys(obj));
 };
-const Gallery = React.createClass({
-  render() {
-    const props = this.props;
-    return (
-      <div className="Gallery">
-      <SpringGrid
-        className="list GalleryGrid"
-        component="ul"
-        columns={2}
-        columnWidth={160}
-        gutterWidth={5}
-        gutterHeight={5}
-        itemHeight={160}
-        springConfig={{stiffness: 170, damping: 26}}
+const Gallery = (props) => {
+  return (
+    <div className="Gallery">
+      <MasonryLayout
+        id="items"
+        className="GalleryGrid"
+        infiniteScroll={props.loadMore}
+        infiniteScrollLoading={props.isLoading}
       >
-        {R.compose(R.map(profileToProfileListItem), objectToList)(props.profiles)}
-      </SpringGrid>
-      </div>
-    )
-  }
-});
+        {R.compose(R.map(profileToProfileListItem), objectToList)(props.items)}
+      </MasonryLayout>
+    </div>
+  )
+}
 
 export default Gallery

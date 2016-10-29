@@ -1,31 +1,35 @@
 import React from 'react';
+import './styles.css';
+import CoverPhoto from '../CoverPhoto';
+import singleCoverPhoto from '../../../assets/single_cover.jpg'
+import AppHeader from '../AppHeader';
+import AppContainer from '../AppContainer';
 
-const Profile = React.createClass({
-  renderProfile() {
-    const props = this.props;
-    const imgUrl = props.profile.picture.large;
-    const username = props.profile.login.username;
-    return (
-      <div>
-        <img src={imgUrl} className="w-100"/>
-        <div>{username}</div>
-      </div>
-    )
-  },
+import AboutSection from './AboutSection';
 
-  renderLoading() {
-    return (
-      <div>
+import faker from 'faker';
 
-        Loading...
-      </div>
-    )
-  },
 
-  render() {
-    if(this.props.profile) return this.renderProfile()
-    else return this.renderLoading()
-  }
-});
+const renderProfile = props => {
+  const imgUrl = props.profile.picture.large;
+  const username = props.profile.login.username;
+  return (
+    <AppContainer>
+      <AppHeader hasBack onBack={props.onBack}/>
+      <CoverPhoto img={singleCoverPhoto} text={username}/> {/*<CoverPhoto img={imgUrl} text={username}/>*/}
+      <AboutSection>{faker.fake("{{lorem.paragraph}}")}</AboutSection>
+    </AppContainer>
+  )
+};
+const renderLoading = () => <div>Loading...</div>;
+
+const Profile = (props) => {
+  return (props.profile) ? renderProfile(props) : renderLoading()
+};
+
+Profile.PropTypes = {
+  onBack : React.PropTypes.func,
+  profile: React.PropTypes.object.isRequired,
+};
 
 export default Profile
