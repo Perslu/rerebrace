@@ -64,14 +64,17 @@ dependencies:
   react-tabs: 0.8.0 # https://github.com/reactjs/react-tabs/tags
   react-masonry-layout: 0.2.3 # https://github.com/scarletsky/react-masonry-layout
   nuka-carousel: 2.0.3 # https://github.com/FormidableLabs/nuka-carousel/releases
+  react-icons: 2.2.1 # https://github.com/gorangajic/react-icons/releases
 
   # Other utilities
   chalk: 1.1.3 # https://github.com/chalk/chalk/releases
   redbox-react: 1.3.1 # https://www.npmjs.com/package/redbox-react
+  faker: 3.1.0 # https://github.com/Marak/faker.js/releases
 
   ### CSS
   normalize.css: 5.0.0 # https://github.com/necolas/normalize.css/releases
-  tachyons: 4.5.2 # https://github.com/tachyons-css/tachyons/releases
+  #tachyons: 4.5.2 # https://github.com/tachyons-css/tachyons/releases
+  react-jss: 4.1.2 # https://github.com/cssinjs/react-jss/releases
 
 
 

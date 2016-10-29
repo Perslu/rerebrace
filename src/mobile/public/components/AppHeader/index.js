@@ -1,12 +1,40 @@
 import React from 'react';
 import "./styles.css";
-import logo from '../../../assets/logo.png'
+import PersluLogo from '../PersluLogo';
+import BackButton from '../BackButton';
+import MenuButton from '../MenuButton';
+import LeftControls from './AppHeaderLeftControls';
+import RightControls from './AppHeaderRightControls';
+import CenterControls from './AppHeaderCenterControls';
+
+const buttonsCenterTop = 12;
+const buttonsCenterSide = 10;
+
+const makeBackButton = (props) => <BackButton size={20} onClick={props.onBack}/>;
+const makeMenuButton = (props) => <MenuButton size={20} />;
 
 const AppHeader = (props) => (
   <div className="AppHeader">
-    <img src={logo} alt="logo" />
-    {/*<div>{props.children}<div>*/}
-    </div>
+
+    <LeftControls mt={buttonsCenterTop} ml={buttonsCenterSide}>
+      {(props.hasBack) ? makeBackButton(props) : makeMenuButton(props)}
+    </LeftControls>
+
+    <CenterControls mt={5}>
+      <PersluLogo/>
+    </CenterControls>
+
+    <RightControls mt={buttonsCenterTop} mr={buttonsCenterSide}>
+      {/*{(props.hasBack) ? makeBackButton(props) : makeMenuButton(props)}*/}
+    </RightControls>
+
+  </div>
 );
+
+AppHeader.PropTypes = {
+  hasBack: React.PropTypes.bool,
+  onBack: React.PropTypes.func,
+
+};
 
 export default AppHeader

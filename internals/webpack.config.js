@@ -15,12 +15,16 @@ module.exports = {
   context: path.join(__dirname, '../src/mobile'),
   entry: {
     js: ['webpack-hot-middleware/client', 'react-hot-loader/patch', './index.js'],
-    // vendor: ['react', 'webpack-hot-middleware/mobile', 'react-hot-loader/patch'],
+    //vendor: ['react', 'react-icons']//'webpack-hot-middleware/mobile', 'react-hot-loader/patch'],
+    //vendor: ['react']
   },
   output: {
     publicPath: '/assets/',
-    path: path.join(__dirname, './assets'),
-    filename: 'bundle.js',
+    path      : path.join(__dirname, './assets'),
+    filename  : "[name].bundle.js",
+    //filename: "[name].bundle.js",
+    //library: "[name]_lib"
+
   },
   module: {
     rules: [
@@ -40,7 +44,11 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, "../src"),
+          path.resolve(__dirname, "../node_modules/react-icons"),
+        ],
+        //exclude: /node_modules\/(?!react-icons|nexttoskip).*/,
         use: [
           //{ loader: 'react-hot' },
           { loader: 'babel-loader' },
@@ -79,13 +87,17 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin(),
+		//new webpack.NoErrorsPlugin(),
     //new ExtractTextPlugin("styles.css"),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'vendor',
-    //   minChunks: Infinity,
-    //   filename: 'vendor.bundle.js'
-    // }),
+     new webpack.optimize.CommonsChunkPlugin({
+       name: 'vendor',
+       minChunks: Infinity,
+       filename: 'vendor.bundle.js'
+     }),
+    //new webpack.DllPlugin({
+    //  path: path.join(__dirname, "./assets", "[name]-manifest.json"),
+    //  name: "[name]_lib"
+    //}),
     // new webpack.LoaderOptionsPlugin({
     //   minimize: true,
     //   debug: false

@@ -1,30 +1,34 @@
 import React from 'react';
 import './styles.css';
-import SectionDark from '../SectionDark';
-import SectionLight from '../SectionLight';
-import SectionHeader from '../SectionHeader';
 import CoverPhoto from '../CoverPhoto';
 import singleCoverPhoto from '../../../assets/single_cover.jpg'
+import AppHeader from '../AppHeader';
+import AppContainer from '../AppContainer';
 
-const renderProfile = profile => {
-  const imgUrl = profile.picture.large;
-  const username = profile.login.username;
+import AboutSection from './AboutSection';
+
+import faker from 'faker';
+
+
+const renderProfile = props => {
+  const imgUrl = props.profile.picture.large;
+  const username = props.profile.login.username;
   return (
-    <div>
-      {/*<CoverPhoto img={imgUrl} text={username}/>*/}
-      <CoverPhoto img={singleCoverPhoto} text={username}/>
-      <SectionDark pt={20} pb={20}>
-        <SectionHeader text={username}/>
-      </SectionDark>
-    </div>
+    <AppContainer>
+      <AppHeader hasBack onBack={props.onBack}/>
+      <CoverPhoto img={singleCoverPhoto} text={username}/> {/*<CoverPhoto img={imgUrl} text={username}/>*/}
+      <AboutSection>{faker.fake("{{lorem.paragraph}}")}</AboutSection>
+    </AppContainer>
   )
 };
 const renderLoading = () => <div>Loading...</div>;
+
 const Profile = (props) => {
-  return (props.profile)? renderProfile(props.profile) : renderLoading()
+  return (props.profile) ? renderProfile(props) : renderLoading()
 };
 
 Profile.PropTypes = {
+  onBack : React.PropTypes.func,
   profile: React.PropTypes.object.isRequired,
 };
 
