@@ -1,5 +1,9 @@
 import React from 'react';
 import FaMenu from 'react-icons/fa/bars';
+import './styles.css'
 
-const MenuButton = (props) => <FaMenu size={props.size} />;
+const MenuButton = (props) =>
+  <div className="MenuButton">
+    <FaMenu size={props.size}/>
+  </div>
 export default MenuButton
