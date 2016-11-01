@@ -98,6 +98,7 @@ devDependencies:
   #babel-eslint: 7.0.0 - dropped because standard eslint is enough # https://github.com/babel/babel-eslint/tags
   # Plugins
   babel-plugin-transform-es2015-destructuring: 6.16.0 # https://www.npmjs.com/package/babel-plugin-transform-es2015-destructuring
+  babel-plugin-transform-object-rest-spread: 6.16.0 # https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread
   babel-plugin-istanbul: 2.0.2 # https://github.com/istanbuljs/babel-plugin-istanbul/tags
   # production only
   babel-plugin-transform-react-constant-elements: 6.9.1 # https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-constant-elements

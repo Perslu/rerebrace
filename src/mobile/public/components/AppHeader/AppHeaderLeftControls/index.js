@@ -8,7 +8,7 @@ const AppHeaderLeftControls = (props) => (
   </section>
 );
 
-AppHeaderLeftControls.PropTypes = {
+AppHeaderLeftControls.propTypes = {
   children: React.PropTypes.any,
   spacingStyle: React.PropTypes.any,
 };

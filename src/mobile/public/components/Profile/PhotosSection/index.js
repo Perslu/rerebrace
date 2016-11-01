@@ -32,7 +32,7 @@ const PhotosSection = props => (
         </SectionContent>
       </SectionLight>
 );
-PhotosSection.PropTypes = {
+PhotosSection.propTypes = {
   photos: React.PropTypes.array.isRequired,
 };
 

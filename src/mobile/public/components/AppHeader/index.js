@@ -31,7 +31,7 @@ const AppHeader = (props) => (
   </div>
 );
 
-AppHeader.PropTypes = {
+AppHeader.propTypes = {
   hasBack: React.PropTypes.bool,
   onBack: React.PropTypes.func,
 

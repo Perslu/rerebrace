@@ -10,7 +10,7 @@ const AboutSection = props => (
         <SectionContent>{props.children}</SectionContent>
       </SectionDark>
 );
-AboutSection.PropTypes = {
+AboutSection.propTypes = {
   children: React.PropTypes.any.isRequired,
 };
 

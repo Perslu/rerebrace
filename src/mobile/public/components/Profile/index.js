@@ -27,7 +27,7 @@ const Profile = (props) => {
   return (props.profile) ? renderProfile(props) : renderLoading()
 };
 
-Profile.PropTypes = {
+Profile.propTypes = {
   onBack : React.PropTypes.func,
   profile: React.PropTypes.object.isRequired,
 };
