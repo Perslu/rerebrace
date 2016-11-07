@@ -22,11 +22,7 @@ const renderProfile = props => {
       <AppHeader hasBack onBack={props.onBack}/>
       <CoverPhoto img={singleCoverPhoto} text={props.profile.name}/> {/*<CoverPhoto img={imgUrl} text={username}/>*/}
       <AboutSection>{props.profile.description}</AboutSection>
-      <InfoSection>
-        <InfoSectionContent>
-          <TextInfo profile={props.profile}/>
-        </InfoSectionContent>
-      </InfoSection>
+      <InfoSection profile={props.profile} />
     </AppContainer>
   )
 };
