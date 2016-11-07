@@ -6,6 +6,7 @@ import { Route, IndexRoute } from 'react-router/es6';
 import App from './App'
 import GalleryView from './public/containers/GalleryView';
 import ProfileView from './public/containers/ProfileView';
+import AgencyProfileView from './public/containers/AgencyProfileView'
 // import Home from './Home'
 import UserInfo from './UserInfo'
 import NotFound from './NotFound'
@@ -26,6 +27,7 @@ export default (
     <IndexRoute component={GalleryView} />
     <Route path="/userinfo" component={UserInfo} />
     <Route path="/profile/:profileId" component={ProfileView} />
+    <Route path="/agency/:agencyId" component={AgencyProfileView} />
     <Route path="/*" component={NotFound} />
   </Route>
 )
