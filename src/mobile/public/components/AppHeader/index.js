@@ -2,6 +2,7 @@ import React from 'react';
 import "./styles.css";
 import PersluLogo from '../PersluLogo';
 import BackButton from '../BackButton';
+import LoginButton from '../LoginButton';
 import MenuButton from '../MenuButton';
 import LeftControls from './AppHeaderLeftControls';
 import RightControls from './AppHeaderRightControls';
@@ -25,7 +26,7 @@ const AppHeader = (props) => (
     </CenterControls>
 
     <RightControls mt={buttonsCenterTop} mr={buttonsCenterSide}>
-      {/*{(props.hasBack) ? makeBackButton(props) : makeMenuButton(props)}*/}
+      {(props.hasBack) ? ''  : <LoginButton/> }
     </RightControls>
 
   </div>

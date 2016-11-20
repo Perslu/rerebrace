@@ -2,6 +2,7 @@
 
 import { combineReducers } from 'redux';
 import { LOCATION_CHANGE, routerReducer } from 'react-router-redux';
+import { reducer as formReducer } from 'redux-form'
 
 import {reduceProfiles as profiles} from '../public/modules/profiles';
 
@@ -24,8 +25,9 @@ const routing = (state = routeInitialState, action) => {
 export default function createReducer(asyncReducers) {
   return combineReducers({
     routing: routerReducer,
-    // Register the inital async reducers, otherwise you will get the warning of Redux
+    // RegisterButton the inital async reducers, otherwise you will get the warning of Redux
     profiles,
+    form: formReducer,
     // profiles: (state = List(['Alicia', 'George', 'Michael'])) => state,
       ...asyncReducers,
   });

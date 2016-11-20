@@ -9,6 +9,7 @@ import AboutSection from './AboutSection';
 import ProfileInfo from '../ProfileInfo';
 import ProfileAppearance from '../ProfileAppearance';
 import ProfileRates from '../ProfileRates';
+import BookNowButton from '../BookNowButton';
 import faker from 'faker';
 
 
@@ -22,7 +23,8 @@ const renderProfile = props => {
       <AboutSection>{faker.fake("{{lorem.paragraph}}")}</AboutSection>
       <ProfileInfo/>
       <ProfileAppearance/>
-      <ProfileRates/>
+      {/*<ProfileRates/>*/}
+      <BookNowButton/>
     </AppContainer>
   )
 };

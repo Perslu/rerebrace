@@ -6,8 +6,14 @@ import { Route, IndexRoute } from 'react-router/es6';
 import App from './App'
 import GalleryView from './public/containers/GalleryView';
 import ProfileView from './public/containers/ProfileView';
+import LoginView from './public/containers/LoginView';
+import RegisterView from './public/containers/RegisterView';
+
+import BookingArea from './public/components/BookingArea';
+import RegisterMemberKind from './public/components/RegisterMemberKind';
 // import Home from './Home'
 import UserInfo from './UserInfo'
+
 import NotFound from './NotFound'
 
 const errorLoading = (err) => {
@@ -24,8 +30,16 @@ const loadModule = cb => (Component) => {
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={GalleryView} />
-    <Route path="/userinfo" component={UserInfo} />
-    <Route path="/profile/:profileId" component={ProfileView} />
+    <Route path="/userInfo" component={UserInfo} />
+    <Route path="/profile/:profileId" component={ProfileView}/>
+
+    <Route path="/bookingArea" component={BookingArea} />
+
+    <Route path="/loginPanel" component={LoginView} />
+    <Route path="/register" component={RegisterView} />
+    <Route path="/registerMemberKind" component={RegisterMemberKind} />
+
+
     <Route path="/*" component={NotFound} />
   </Route>
 )
