@@ -2,7 +2,9 @@ import React from 'react';
 import "./styles.css";
 import PersluLogo from '../PersluLogo';
 import BackButton from '../BackButton';
+import LoginButton from '../LoginButton';
 import MenuButton from '../MenuButton';
+import ContactButton from '../ContactButton';
 import LeftControls from './AppHeaderLeftControls';
 import RightControls from './AppHeaderRightControls';
 import CenterControls from './AppHeaderCenterControls';
@@ -26,7 +28,8 @@ const AppHeader = (props) => (
     </CenterControls>
 
     <RightControls mt={buttonsCenterTop} mr={buttonsCenterSide}>
-      {/*{(props.hasBack) ? makeBackButton(props) : makeMenuButton(props)}*/}
+      {(props.hasBack) ? ''  : <LoginButton/> }
+      {(props.hasBack) ? ''  : <ContactButton/> }
     </RightControls>
 
   </div>

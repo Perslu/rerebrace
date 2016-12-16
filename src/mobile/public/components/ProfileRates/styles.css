@@ -1,0 +1,39 @@
+.TableRates {
+
+}
+
+.RatesRow {
+  font-size: .8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(34, 34, 34);
+}
+.RatesRow p {
+  flex-grow: 1;
+  margin: 0;
+}
+.RatesRow:not(.Header) .RatesColumn:last-child {
+  color: #deff34;
+  font-size: 1.1rem;
+}
+.Header {
+
+  text-transform: uppercase;
+}
+
+.RatesColumn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 33.3%;
+  padding: 4px;
+  border-left: 2px solid rgb(34, 34, 34);
+  border-right: 2px solid rgb(34, 34, 34);
+  background-color: rgb(51, 51, 51);
+  background: linear-gradient(70deg, rgba(34, 34, 34, 0.4), rgba(51, 51, 51, 1) 95%);
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}

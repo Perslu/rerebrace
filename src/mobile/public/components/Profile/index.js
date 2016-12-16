@@ -6,7 +6,10 @@ import AppHeader from '../AppHeader';
 import AppContainer from '../AppContainer';
 
 import AboutSection from './AboutSection';
-
+import ProfileInfo from '../ProfileInfo';
+import ProfileAppearance from '../ProfileAppearance';
+import ProfileRates from '../ProfileRates';
+import BookNowButton from '../BookNowButton';
 import faker from 'faker';
 
 
@@ -18,6 +21,10 @@ const renderProfile = props => {
       <AppHeader hasBack onBack={props.onBack}/>
       <CoverPhoto img={singleCoverPhoto} text={username}/> {/*<CoverPhoto img={imgUrl} text={username}/>*/}
       <AboutSection>{faker.fake("{{lorem.paragraph}}")}</AboutSection>
+      <ProfileInfo/>
+      <ProfileAppearance/>
+      {/*<ProfileRates/>*/}
+      <BookNowButton/>
     </AppContainer>
   )
 };

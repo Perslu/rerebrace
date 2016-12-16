@@ -1,0 +1,27 @@
+
+.loginForm input {
+  height: 35px;
+  padding: 6px 16px;
+  margin-top: 15px;
+  color: #909fa7;
+  background-color: #0d1821;
+  /*border: 1px solid #0d1821;*/
+  border-radius: 4px;
+  box-shadow: inset 1px 2px 0 #0c131b,1px 1px 0 #0b131b;
+  /*-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;*/
+          transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.loginForm button {
+  margin-top: 40px;
+}
+.ForgotPassword {
+  margin-bottom: 40px;
+  color: #909fa7;
+  text-decoration: none;
+  text-align: right;
+  font-size: .9rem;
+
+}
+ a{
+  text-decoration: none;
+}

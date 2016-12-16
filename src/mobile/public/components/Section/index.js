@@ -1,5 +1,5 @@
 import React from 'react';
-import "./styles.css";
+
 import R from 'ramda';
 import SpacingHOC from '../SpacingHOC';
 
