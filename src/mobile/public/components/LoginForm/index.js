@@ -7,14 +7,14 @@ import { Link } from 'react-router'
 const submit = (values) => console.log(values);
 
 const renderField = ({ input, type, meta: { touched, error, warning, invalid, ...other }, ...props }) => {
-  console.log(other, props, invalid);
+  console.log(touched,other, props, invalid);
 
   const fieldValidityClass=(invalid) ? "fieldInvalid":'fieldValid';
   const fieldStateClass=(touched) ? fieldValidityClass:'fieldInitial';
 
   return (<div>
     <div>
-      <input {...input} className={fieldStateClass} placeholder={props.placeholder} type={type}/>
+      <input {...input}  className={fieldStateClass} placeholder={props.placeholder} type={type} />
       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
     </div>
   </div>);

@@ -4,6 +4,7 @@ import PersluLogo from '../PersluLogo';
 import BackButton from '../BackButton';
 import LoginButton from '../LoginButton';
 import MenuButton from '../MenuButton';
+import ContactButton from '../ContactButton';
 import LeftControls from './AppHeaderLeftControls';
 import RightControls from './AppHeaderRightControls';
 import CenterControls from './AppHeaderCenterControls';
@@ -27,6 +28,7 @@ const AppHeader = (props) => (
 
     <RightControls mt={buttonsCenterTop} mr={buttonsCenterSide}>
       {(props.hasBack) ? ''  : <LoginButton/> }
+      {(props.hasBack) ? ''  : <ContactButton/> }
     </RightControls>
 
   </div>

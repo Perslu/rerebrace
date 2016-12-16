@@ -1,0 +1,11 @@
+.fieldInvalid{
+  border-color: red;
+}
+.fieldValid {
+  border-color: green;
+
+}
+.fieldInitial {
+  border-color: blue;
+
+}
