@@ -35,7 +35,7 @@ const ContactForm = (props) => {
       <Field component={SelectInput} name="selectInput" label="Select subject"/>
       <Field component={renderField} type="text" className='subject' name="subject" label="Subject" placeholder={props.selectInput}/>
 
-      <Field component={Textarea} name="textarea" cols="40" rows="5" label="Your message"/>
+      <Field component={Textarea} name="textarea" cols="10" rows="5" label="Your message"/>
 
 
       <TextButton type='submit' tekst='Send Message'> </TextButton>

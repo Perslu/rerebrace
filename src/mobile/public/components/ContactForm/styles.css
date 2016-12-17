@@ -1,14 +1,14 @@
-.contactForm-section {
-  border-radius: 5px;
-  background-color: #012549;
-}
-textarea {
-  background-color: #012549;
-}
-textarea:focus,
-input:focus {
-  outline: 0;
-  background-color: #08081c;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(44,62,80,.6);
+/*.contactForm-section {*/
+  /*border-radius: 5px;*/
+  /*background-color: #012549;*/
+/*}*/
+/*textarea {*/
+  /*background-color: #012549;*/
+/*}*/
+/*textarea:focus,*/
+/*input:focus {*/
+  /*outline: 0;*/
+  /*background-color: #08081c;*/
+  /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(44,62,80,.6);*/
 
-}
+/*}*/

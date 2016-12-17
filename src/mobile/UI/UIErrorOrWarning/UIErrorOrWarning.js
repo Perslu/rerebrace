@@ -7,7 +7,7 @@ const UIErrorOrWarning = ({meta: {touched, error, warning}}) => {
 };
 
 UIErrorOrWarning.propTypes = {
-  meta: React.PropTypes.shape.isRequired({
+  meta: React.PropTypes.shape({
     touched: React.PropTypes.bool,
     error: React.PropTypes.string,
     warning: React.PropTypes.string

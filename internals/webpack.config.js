@@ -1,99 +1,99 @@
 // noinspection Eslint
-const webpack = require('webpack');
-const path = require('path');
+import webpack from 'webpack'
+import path from 'path'
+import * as loaders from './loaders'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import HappyPack from 'happypack'
+
+
 //const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 
+
+const __root = path.join(__dirname, '../')
+const __src = path.join(__root, 'src')
 const PATHS = {
-  assets: path.join(__dirname, './assets')
+  assets: path.join(__src, 'mobile/assets'),
+  mobile: path.join(__src, 'mobile'),
+  buildTarget: path.join(__root, 'build/bundles'),
+  dllTarget: path.join(__root, 'build/dll'),
 }
+
 // noinspection Eslint
-module.exports = {
+export default {
+  cache: true,
+  performance: {
+    hints: false
+  },
   devtool: isProd ? 'hidden-source-map' : 'source-map',
-  context: path.join(__dirname, '../src/mobile'),
+  context: PATHS.mobile,
   entry: {
-    js: ['webpack-hot-middleware/client', 'react-hot-loader/patch', './index.js'],
+    app: ['webpack-hot-middleware/client', 'react-hot-loader/patch', './index.js'],
     //vendor: ['react', 'react-icons']//'webpack-hot-middleware/mobile', 'react-hot-loader/patch'],
     //vendor: ['react']
   },
   output: {
-    publicPath: '/assets/',
-    path      : path.join(__dirname, './assets'),
-    filename  : "[name].bundle.js",
+    publicPath: '/bundles/',
+    path: PATHS.buildTarget,
+    filename: "[name].js",
+    chunkFilename: '[name]-[chunkhash].js',
     //filename: "[name].bundle.js",
     //library: "[name]_lib"
-
+    
   },
   module: {
     rules: [
-      {
-        test: /\.html$/,
-        loader: 'file',
-        options: {
-          name: '[name].[ext]',
-        },
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {loader: 'style'},
-          {loader: 'css'},
-        ],
-      },
-      {
-        test: /\.(js|jsx)$/,
-        include: [
-          path.resolve(__dirname, "../src"),
-          path.resolve(__dirname, "../node_modules/react-icons"),
-        ],
-        //exclude: /node_modules\/(?!react-icons|nexttoskip).*/,
-        use: [
-          //{ loader: 'react-hot' },
-          { loader: 'babel-loader' },
-        ],
-      },
-      //{ test: /\.css$/,
-      //  loader: ExtractTextPlugin.extract({loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'})
-      //},
-      {
-        test: require.resolve("ramda"),
-        loader: "expose?R"
-      },
-      {
-        test: /\.(png|jpg|gif|svg)/,
-        //loader: 'url?limit=10000',
-        loader: 'file?name=[name].[hash].[ext]',
-        //include: [PATHS.assets],
-        //options: {
-        //  name: '[path][name].[ext]',
-        //},
-      },
-      //{
-      //  loader: 'url?limit=100000',
-      //  test: /\.(ttf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
-      //  include: path.resolve(__dirname, PATHS.assets),
-      //}
+      loaders.htmlLoader,
+      loaders.cssLoader,
+      loaders.jsLoader,
+      loaders.imageLoader,
+      //loaders.fontLoader,
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      path.resolve('../src/mobile'),
-      '../node_modules',
+      PATHS.mobile,
+      //path.resolve(__root, '/src/mobile'),
+      //path.resolve(__root, 'node_modules'),
+      'node_modules',
     ],
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
-		//new webpack.NoErrorsPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    //new webpack.NoErrorsPlugin(),
     //new ExtractTextPlugin("styles.css"),
-     new webpack.optimize.CommonsChunkPlugin({
-       name: 'vendor',
-       minChunks: Infinity,
-       filename: 'vendor.bundle.js'
-     }),
+    new webpack.DllReferencePlugin({
+      context: PATHS.dllTarget,
+      manifest: require(path.join(PATHS.dllTarget, 'main-manifest.json'))
+    }),
+    //new webpack.DllReferencePlugin({
+    //  context: PATHS.dllTarget,
+    //  manifest: require(path.join(PATHS.dllTarget, 'router-manifest.json'))
+    //}),
+    //new webpack.DllReferencePlugin({
+    //  context: PATHS.dllTarget,
+    //  manifest: require(path.join(PATHS.dllTarget, 'redux-manifest.json'))
+    //}),
+    //new webpack.DllReferencePlugin({
+    //  context: PATHS.dllTarget,
+    //  manifest: require(path.join(PATHS.dllTarget, 'utils-manifest.json'))
+    //}),
+    //new webpack.optimize.CommonsChunkPlugin({
+    //  name: 'vendor',
+    //  minChunks: Infinity,
+    //  filename: 'vendor-common.js'
+    //}),
+    new HtmlWebpackPlugin({
+      title: "Perslu",
+      template: 'index.ejs',
+    }),
+    new HappyPack({
+      loaders: ['babel-loader']
+    }),
     //new webpack.DllPlugin({
     //  path: path.join(__dirname, "./assets", "[name]-manifest.json"),
     //  name: "[name]_lib"
@@ -116,7 +116,9 @@ module.exports = {
     // })
   ],
   devServer: {
-    contentBase: '../src/mobile',
+    contentBase: PATHS.mobile,
     // hot: true
   },
 };
+
+module.exports = exports.default

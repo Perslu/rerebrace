@@ -11,8 +11,6 @@ import AppHeader from '../AppHeader';
 import AppContainer from '../AppContainer';
 import AboutSection from './AboutSection';
 import InfoSection from './InfoSection'
-import InfoSectionContent from './InfoSectionContent';
-import TextInfo from './InfoSectionContent/TextInfo'
 
 
 
