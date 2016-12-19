@@ -1,0 +1,126 @@
+import { assert } from 'chai'
+
+import {
+{{#each actions}}
+  {{constantCase actionType}},
+{{/each}}
+  /* PLOP-ACTION_TYPE_IMPORT */
+} from '../{{camelCase name}}ActionTypes'
+
+import {
+{{#each actions}}
+  {{camelCase actionName}},
+{{/each}}
+  /* PLOP-ACTION_IMPORT */
+} from '../{{camelCase name}}Actions'
+
+import {
+  getState,
+  /* PLOP-SELECTOR_IMPORT */
+} from '../{{camelCase name}}Selectors'
+
+import reducer from '../{{camelCase name}}Reducers'
+/* PLOP-AFTER_IMPORTS */
+
+
+
+describe('{{camelCase name}}', () =>  {
+
+  describe('Reducer', () =>  {
+
+    {{#if (is_cond value '==' 'object')}}
+    it('should return empty {{value}} on initialization', () =>  {
+      const state = reducer(undefined, {})
+      assert.isObject(state)
+    })
+    {{#each actions}}
+
+    it('should change on {{camelCase actionName}} action', () =>  {
+      const oldState = {}
+      const newState = reducer(oldState, {{camelCase actionName}}())
+      assert.deepEqual(newState, oldState)
+    })
+    {{/each}}
+    {{/if }}
+    {{#if (is_cond ../value '==' 'array')}}
+    it('should return empty {{value}} on initialization', () =>  {
+      const state = reducer(undefined, {})
+      assert.isArray(state)
+    })
+    {{#each actions}}
+
+    it('should change on {{camelCase actionName}} action', () =>  {
+      const oldState = []
+      const newState = reducer(oldState, {{camelCase actionName}}())
+      assert.deepEqual(newState.length, 1)
+    })
+    {{/each}}
+    {{/if }}
+    {{#if (is_cond ../value '==' 'string')}}
+    it('should return empty {{value}} on initialization', () =>  {
+      const state = reducer(undefined, {})
+      assert.isString(state)
+    })
+    {{#each actions}}
+
+    it('should change on {{camelCase actionName}} action', () =>  {
+      const newState = reducer('', {{camelCase actionName}}('new string'))
+      assert.equal(newState, 'new string')
+    })
+    {{/each}}
+    {{/if }}
+    {{#if (is_cond ../value '==' 'number')}}
+    it('should return empty {{value}} on initialization', () =>  {
+      const state = reducer(undefined, {})
+      assert.isNumber(state)
+    })
+    {{#each actions}}
+
+    it('should change on {{camelCase actionName}} action', () =>  {
+      const newState = reducer(0, {{camelCase actionName}}(1))
+      assert.equal(newState, 1)
+    })
+    {{/each}}
+    {{/if }}
+
+    /* PLOP-REDUCER_TESTS */
+  })
+
+
+  describe('Actions', () =>  {
+    {{#each actions}}
+
+    it('{{camelCase actionName}} should return {{constantCase actionType}} action', () =>  {
+      const payload = 'test payload'
+      const action = {{camelCase actionName}}(payload)
+      assert.equal(action.type, {{constantCase actionType}})
+      assert.equal(action.payload, payload)
+    })
+    {{/each}}
+
+    /* PLOP-ACTION_TESTS */
+  })
+
+
+  describe('Epics', () =>  {
+
+    /* PLOP-EPIC_TESTS */
+  })
+
+
+  describe('Selectors', () =>  {
+
+    it('should select {{name}} from global state', () =>  {
+      const initialState = {{getInitialState value}}
+      const globalState = { {{name}}: initialState }
+      assert.equal(getState(globalState), initialState)
+    })
+
+    /* PLOP-SELECTOR_TESTS */
+  })
+
+  /* PLOP-AFTER_DEFAULT_TESTS */
+})
+
+
+/* PLOP-FILE_END */

@@ -8,6 +8,7 @@ import ContactButton from '../ContactButton';
 import LeftControls from './AppHeaderLeftControls';
 import RightControls from './AppHeaderRightControls';
 import CenterControls from './AppHeaderCenterControls';
+import {Link} from 'react-router';
 
 const buttonsCenterTop = 12;
 const buttonsCenterSide = 10;
@@ -18,12 +19,12 @@ const makeMenuButton = (props) => <MenuButton size={20} />;
 const AppHeader = (props) => (
   <div className="AppHeader">
 
-    <LeftControls mt={buttonsCenterTop} ml={buttonsCenterSide}>
+    <LeftControls>
       {(props.hasBack) ? makeBackButton(props) : makeMenuButton(props)}
     </LeftControls>
 
     <CenterControls mt={5}>
-      <PersluLogo/>
+      <Link to="/" ><PersluLogo/></Link>
     </CenterControls>
 
     <RightControls mt={buttonsCenterTop} mr={buttonsCenterSide}>
@@ -34,7 +35,7 @@ const AppHeader = (props) => (
   </div>
 );
 
-AppHeader.PropTypes = {
+AppHeader.propTypes = {
   hasBack: React.PropTypes.bool,
   onBack: React.PropTypes.func,
 

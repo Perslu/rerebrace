@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectTasksOptions" suppressed-tasks="Babel">
-    <TaskOptions isEnabled="true">
-      <option name="arguments" value="$FileName$ " />
+    <TaskOptions isEnabled="false">
+      <option name="arguments" value="$FileName$  --pretty" />
       <option name="checkSyntaxErrors" value="true" />
-      <option name="description" value="" />
+      <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="yml" />
       <option name="immediateSync" value="false" />

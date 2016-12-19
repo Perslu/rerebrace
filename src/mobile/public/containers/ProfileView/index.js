@@ -1,9 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 import Profile from '../../components/Profile';
-import {connect} from 'react-redux';
-import {fetchProfile} from '../../modules/profiles';
-import {getProfile} from '../../modules/profiles';
+import { connect } from 'react-redux';
+import { fetchProfile } from '../../modules/profiles';
+import { getProfile } from '../../modules/profiles';
 
 const actions = {
   fetchProfile
@@ -17,10 +17,10 @@ const ProfileView = React.createClass({
   componentWillMount() {
     this.props.fetchProfile(this.props.params.profileId)
   },
-
+  
   render() {
-    const props = this.props;
-    return <Profile profile={props.profile} />
+    const { profile } = this.props;
+    return (profile) ? <Profile profile={profile}/> : <span>Loading</span>
   }
 });
 

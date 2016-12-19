@@ -7,7 +7,7 @@ import {fetchProfiles} from '../../modules/profiles';
 import {getProfiles} from '../../modules/profiles';
 import AppContainer from '../../components/AppContainer';
 import AppHeader from '../../components/AppHeader';
-import CoverPhoto from '../../components/CoverPhoto';
+import CoverPhoto, {THEME_LIGHT} from '../../components/CoverPhoto';
 import bangkokCoverPhoto from '../../../assets/bangkok.jpg'
 
 const actions = {
@@ -32,7 +32,7 @@ const GalleryView = React.createClass({
     return (
     <AppContainer>
       <AppHeader>Gallery</AppHeader>
-      <CoverPhoto img={bangkokCoverPhoto} theme={CoverPhoto.THEME_LIGHT} text="Bangkokasd"  />
+      <CoverPhoto img={bangkokCoverPhoto} theme={THEME_LIGHT} text="Bangkokasd"  />
       {/*<ProfileCarousel  items={props.profiles} />*/}
       <Gallery isLoading={props.isLoading} items={props.profiles} loadMore={loadMoreProfiles} />
     </AppContainer>

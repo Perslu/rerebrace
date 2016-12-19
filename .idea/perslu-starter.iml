@@ -2,6 +2,10 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.happypack" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flow_definitions" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>
@@ -9,7 +13,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="chai-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="express-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="immutable-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="jsdom-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="lodash-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="mocha-DefinitelyTyped" level="application" />
@@ -20,6 +23,10 @@
     <orderEntry type="library" name="react-router-redux-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="redux-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="redux-form-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="express" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Elixir SDK" level="project" />
+    <orderEntry type="library" name="phoenix-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="ramda-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="recompose-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="reselect-DefinitelyTyped" level="application" />
   </component>
 </module>

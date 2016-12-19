@@ -10,7 +10,6 @@ import ProfileInfo from '../ProfileInfo';
 import ProfileAppearance from '../ProfileAppearance';
 import ProfileRates from '../ProfileRates';
 import BookNowButton from '../BookNowButton';
-import faker from 'faker';
 
 
 const renderProfile = props => {
@@ -20,7 +19,7 @@ const renderProfile = props => {
     <AppContainer>
       <AppHeader hasBack onBack={props.onBack}/>
       <CoverPhoto img={singleCoverPhoto} text={username}/> {/*<CoverPhoto img={imgUrl} text={username}/>*/}
-      <AboutSection>{faker.fake("{{lorem.paragraph}}")}</AboutSection>
+      <AboutSection>Lorem ipsum dolor sit amet, tellus ac mauris tortor, luctus vel lorem ut purus enim vivamus, nunc morbi cras integer id sed mauris, tempor tortor rutrum sed, ultrices amet nonummy etiam. Mattis ac aenean nostra. Eu ac sed, diam cras dui elit aliquam tristique facilisi. Feugiat augue. Quis quis eros quis augue, ipsum tristique luctus faucibus donec imperdiet, justo velit vestibulum ultricies scelerisque pellentesque, tellus ut vehicula arcu mauris sapien. Habitant ut, venenatis nulla, rutrum ante luctus.</AboutSection>
       <ProfileInfo/>
       <ProfileAppearance/>
       {/*<ProfileRates/>*/}
@@ -34,7 +33,7 @@ const Profile = (props) => {
   return (props.profile) ? renderProfile(props) : renderLoading()
 };
 
-Profile.PropTypes = {
+Profile.propTypes = {
   onBack : React.PropTypes.func,
   profile: React.PropTypes.object.isRequired,
 };

@@ -6,6 +6,7 @@ import { Route, IndexRoute } from 'react-router/es6';
 import App from './App'
 import GalleryView from './public/containers/GalleryView';
 import ProfileView from './public/containers/ProfileView';
+import AgencyProfileView from './public/containers/AgencyProfileView'
 import LoginView from './public/containers/LoginView';
 import ContactView from './public/containers/ContactView';
 import RegisterView from './public/containers/RegisterView';
@@ -31,16 +32,16 @@ const loadModule = cb => (Component) => {
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={GalleryView} />
-    <Route path="/userInfo" component={UserInfo} />
-    <Route path="/profile/:profileId" component={ProfileView}/>
+    <Route path="/userinfo" component={UserInfo} />
+    <Route path="/profile/:profileId" component={ProfileView} />
+    <Route path="/agency/:agencyId" component={AgencyProfileView} />
 
     <Route path="/bookingArea" component={BookingArea} />
     <Route path="/contactPanel" component={ContactView} />
     <Route path="/loginPanel" component={LoginView} />
     <Route path="/register" component={RegisterView} />
     <Route path="/registerMemberKind" component={RegisterMemberKind} />
-
-
+    
     <Route path="/*" component={NotFound} />
   </Route>
 )

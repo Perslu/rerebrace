@@ -1,0 +1,13 @@
+.contentRow {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.labelColumn {
+  font-weight: bold;
+  margin-left: -20px;
+}
+
+.valueColumn {
+  color: #c2c1c1;
+}

@@ -8,7 +8,7 @@ const Section = (props) => (
     <div style={props.spacingStyle} className={R.join(' ', ["Section", props.className])}>{props.children}</div>
 );
 
-Section.PropTypes = {
+Section.propTypes = {
   className: React.PropTypes.string,
 };
 export default SpacingHOC(Section)

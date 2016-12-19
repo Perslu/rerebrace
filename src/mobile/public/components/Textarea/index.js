@@ -1,21 +1,29 @@
 import React from 'react'
-import  UIErrorOrWarning from '../../../UI/UIErrorOrWarning'
-import  UIValidationColorResult from '../../../UI/UIValidationColorResult'
+
+import  UIValidationColorResult from 'UI/UIValidationColorResult'
+import UIErrorOrWarning from 'UI/UIErrorOrWarning'
+
+import injectSheet from 'react-jss'
 
 
-
-
-const Textarea = ({ input, label, type, value, meta: { touched, pristine, invalid, error, warning, ...other }, ...props })=> {
+const Textarea = ({ input, label, type, value, meta: { touched, pristine, invalid, error, warning, ...other }, sheet: {classes}, ...props })=> {
 
   return (
     <div className="contactForm-section">
-
       <label htmlFor={type}>{label}</label>
-      <textarea {...input}  className={props.validatedClass} cols={props.cols} rows={props.rows} value={value}   />
+      <textarea {...input}  className={props.validatedClass +" "+ classes.textarea} cols={props.cols} rows={props.rows} value={value}   />
       <UIErrorOrWarning touched={touched} error={error} warning={warning}/>
     </div>
   );
 };
 
-export default UIValidationColorResult(Textarea)
+
+const styles = {
+  textarea: {
+    backgroundColor: 'yellow'
+  }
+}
+
+export default injectSheet(styles)(UIValidationColorResult(Textarea))
+
 

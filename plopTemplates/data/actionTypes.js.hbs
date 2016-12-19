@@ -1,0 +1,11 @@
+import { makeConstantBuilder } from '../utils'
+
+const constantBuilder = makeConstantBuilder('{{system}}', '{{camelCase name}}')
+
+{{#each actions}}
+export const {{constantCase actionType}} = constantBuilder('{{constantCase actionType}}')
+{{/each}}
+/* PLOP-ACTION_TYPE_DEFINITION */
+
+
+/* PLOP-FILE_END */
