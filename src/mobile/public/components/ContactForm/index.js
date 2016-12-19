@@ -26,16 +26,18 @@ const renderField = ({ input, label, type, value, meta: { touched, error, warnin
 };
 
 
+
+
 const ContactForm = (props) => {
 
   return (<div>
     <form  onSubmit={props.handleSubmit(submit)} id="loginForm" className="loginForm">
 
-      <Field component={renderField} type="text" className='email' name="email" placeholder="mail@example.com" label="Email"/>
+      <Field component={renderField} type="text" name="email" placeholder="mail@example.com" label="Email"/>
       <Field component={SelectInput} name="selectInput" label="Select subject"/>
-      <Field component={renderField} type="text" className='subject' name="subject" label="Subject" placeholder={props.selectInput}/>
+      <Field component={renderField} type="text" name="subject" label="Subject" placeholder={props.selectInput}/>
 
-      <Field component={Textarea} name="textarea" cols="40" rows="5" label="Your message"/>
+      <Field component={Textarea} name="textarea"  cols="20" rows="5" label="Your message"/>
 
 
       <TextButton type='submit' tekst='Send Message'> </TextButton>

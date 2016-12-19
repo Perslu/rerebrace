@@ -107,7 +107,7 @@ const DateTimeMoment = (fields) => {
   return (
     <div>
       <input {...fields.date.input} type="date"  onBlur={fields.date.input.onBlur} onFocus={fields.date.input.onFocus} className={fieldStateClass(fields)}
-             value={getDateFromField(fields)} onChange={event => onDateChange(fields, event)} />
+             value={getDateFromField(fields)} onChange={onDateChange(fields,event)} />
       {<span>{ fields.date.meta.touched && fields.date.meta.error}</span>}
       <input {...fields.time.input} type="time" onBlur={fields.time.input.onBlur} onFocus={fields.time.input.onFocus}
              className={fieldStateClassTime(fields)} value={getTimeFromField(fields)} onChange={event => onTimeChange(fields, event)}/>

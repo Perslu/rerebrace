@@ -23,7 +23,7 @@ const SelectInput =({ input, label, type, value, meta: {  visited, pristine, inv
         <option value="Mango">Mango</option>
       </select>
 
-      {touched && (error && <span>{error}</span>) }
+      {touched && (error && <span>{error}</span>)}
     </div>
 
   );
