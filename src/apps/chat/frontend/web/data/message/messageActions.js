@@ -1,18 +1,21 @@
-import { createAction } from '../utils'
+import { createWrappedAction } from '../utils'
 
-import { NEW, NEW_MESSAGE_PUSHED_TO_CHANNEL } from './messageActionTypes'
+import { NEW, ADD_RECEIVED_MESSAGE } from './messageActionTypes'
 
 
-export function sendNewMessage(message){
+const randomId = now => now.toString().concat('_').concat(Math.floor(Math.random() * 1000000))
+
+export function sendNewMessage(message) {
+  const now = Date.now()
   return {
     type: NEW,
     payload: {
       content: message,
-      localTimestamp: Date.now(),
+      localTimestamp: now,
       isAck: false,
-    }
+      localId: randomId(now),
+    },
   }
 }
 
-export const pushNewMessageToChannel = pushedMessage => createAction(NEW_MESSAGE_PUSHED_TO_CHANNEL, pushedMessage)
-    
+export const addReceivedMessage = createWrappedAction(ADD_RECEIVED_MESSAGE)

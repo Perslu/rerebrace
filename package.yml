@@ -55,7 +55,7 @@ dependencies:
   react-redux: 5.0.1 # https://github.com/reactjs/react-redux/tags
   redux-thunk: 2.1.0 # https://github.com/gaearon/redux-thunk/releases
   redux-form: 6.3.2 # https://www.npmjs.com/package/redux-form
-  redux-promise-middleware: 4.2.0 # https://github.com/pburtchaell/redux-promise-middleware/releases
+#  redux-promise-middleware: 4.2.0 # https://github.com/pburtchaell/redux-promise-middleware/releases
 
 
   # Routing
@@ -79,7 +79,7 @@ dependencies:
   # Other utilities
   chalk: 1.1.3 # https://github.com/chalk/chalk/releases
   redbox-react: 1.3.1 # https://www.npmjs.com/package/redbox-react
-  faker: 3.1.0 # https://github.com/Marak/faker.js/releases
+#  faker: 3.1.0 # https://github.com/Marak/faker.js/releases
 
   ### CSS
   normalize.css: 5.0.0 # https://github.com/necolas/normalize.css/releases
@@ -113,7 +113,7 @@ devDependencies:
   # Plugins
   babel-plugin-transform-es2015-destructuring: 6.18.0 # https://www.npmjs.com/package/babel-plugin-transform-es2015-destructuring
   babel-plugin-transform-object-rest-spread: 6.20.1 # https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread
-  babel-plugin-istanbul: 2.0.2 # https://github.com/istanbuljs/babel-plugin-istanbul/tags
+#  babel-plugin-istanbul: 2.0.2 # https://github.com/istanbuljs/babel-plugin-istanbul/tags
   # production only
   babel-plugin-transform-react-constant-elements: 6.9.1 # https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-constant-elements
   babel-plugin-transform-react-inline-elements: 6.8.0 # https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-inline-elements
@@ -128,7 +128,7 @@ devDependencies:
 
   # HMR
   react-hot-loader: 3.0.0-beta.6 # https://github.com/gaearon/react-hot-loader/tags
-  express-hot-loader: 0.0.1 # https://www.npmjs.com/package/express-hot-loader
+#  express-hot-loader: 0.0.1 # https://www.npmjs.com/package/express-hot-loader
   # plugins
   html-webpack-plugin: 2.24.1 # https://www.npmjs.com/package/html-webpack-plugin
   extract-text-webpack-plugin: 2.0.0-beta.4 # https://github.com/webpack/extract-text-webpack-plugin/blob/master/package.json
@@ -137,7 +137,7 @@ devDependencies:
   babel-loader: 6.2.10 # https://github.com/babel/babel-loader/tags - JS Files
   css-loader: 0.26.1 # https://github.com/webpack/css-loader/tags
   style-loader: 0.13.1 # https://github.com/webpack/style-loader/tags
-  postcss-loader: 0.13.0 # https://github.com/postcss/postcss-loader/tags
+#  postcss-loader: 0.13.0 # https://github.com/postcss/postcss-loader/tags
   file-loader: 0.9.0 # https://github.com/webpack/file-loader/tags
   url-loader: 0.5.7 # https://github.com/webpack/url-loader/blob/master/package.json
   image-webpack-loader: 3.1.0 # https://github.com/tcoopman/image-webpack-loader/releases
@@ -146,16 +146,16 @@ devDependencies:
 
 
   # PostCSS
-  postcss-modules: 0.5.2 # https://github.com/css-modules/postcss-modules/tags
-  postcss-cssnext: 2.8.0 # https://github.com/MoOx/postcss-cssnext/tags
-  postcss-focus: 1.0.0 # https://github.com/postcss/postcss-focus/tags
-  postcss-reporter: 1.4.1 # https://github.com/postcss/postcss-reporter/tags
-  postcss-stats-reporter: 0.1.2 # https://github.com/jeffjewiss/postcss-stats-reporter/tags
-  postcss-sorting: 1.7.0 # https://github.com/hudochenkov/postcss-sorting/tags
-  postcss-utilities: 0.5.1 # https://github.com/ismamz/postcss-utilities/tags
-  doiuse: 2.5.0 # https://github.com/anandthakker/doiuse/tags
-  sugarss: 0.2.0 # https://github.com/postcss/sugarss/tags
-  precss: 1.4.0 # https://github.com/jonathantneal/precss/tags
+#  postcss-modules: 0.5.2 # https://github.com/css-modules/postcss-modules/tags
+#  postcss-cssnext: 2.8.0 # https://github.com/MoOx/postcss-cssnext/tags
+#  postcss-focus: 1.0.0 # https://github.com/postcss/postcss-focus/tags
+#  postcss-reporter: 1.4.1 # https://github.com/postcss/postcss-reporter/tags
+#  postcss-stats-reporter: 0.1.2 # https://github.com/jeffjewiss/postcss-stats-reporter/tags
+#  postcss-sorting: 1.7.0 # https://github.com/hudochenkov/postcss-sorting/tags
+#  postcss-utilities: 0.5.1 # https://github.com/ismamz/postcss-utilities/tags
+#  doiuse: 2.5.0 # https://github.com/anandthakker/doiuse/tags
+#  sugarss: 0.2.0 # https://github.com/postcss/sugarss/tags
+#  precss: 1.4.0 # https://github.com/jonathantneal/precss/tags
   # Container queries - css based on parent eg. width https://github.com/ausi/cq-prolyfill
   # Removing hover for mobile devices - https://github.com/RoundingWellOS/postcss-hover/tags
 
@@ -178,25 +178,25 @@ devDependencies:
   eslint-import-resolver-webpack: 0.6.0 # https://github.com/benmosher/eslint-plugin-import/blob/master/resolvers/webpack/package.json
   eslint-import-resolver-node: 0.2.3 # https://github.com/benmosher/eslint-plugin-import/blob/master/resolvers/node/package.json
   eslint-config-airbnb: 12.0.0
-  stylelint: 7.3.1 # https://github.com/stylelint/stylelint/tags
-  stylelint-config-standard: 13.0.2 # https://github.com/stylelint/stylelint-config-standard/tags
+#  stylelint: 7.3.1 # https://github.com/stylelint/stylelint/tags
+#  stylelint-config-standard: 13.0.2 # https://github.com/stylelint/stylelint-config-standard/tags
 
   # Testing
-  karma: 1.3.0 # https://github.com/karma-runner/karma/tags
-  karma-phantomjs-launcher: 1.0.2 # https://github.com/karma-runner/karma-phantomjs-launcher/tags
-  karma-chrome-launcher: 2.0.0 # https://github.com/karma-runner/karma-chrome-launcher/tags
-  karma-safari-launcher: 1.0.0 # https://github.com/karma-runner/karma-safari-launcher/tags
-  karma-firefox-launcher: 1.0.0 # https://github.com/karma-runner/karma-firefox-launcher/tags
-  karma-ie-launcher: 1.0.0 # https://github.com/karma-runner/karma-ie-launcher/tags
-  karma-mocha: 1.2.0 # https://github.com/karma-runner/karma-mocha/tags
-  karma-mocha-reporter: 2.2.0 # https://github.com/litixsoft/karma-mocha-reporter/tags
-  karma-sourcemap-loader: 0.3.7 # https://github.com/demerzel3/karma-sourcemap-loader/blob/master/package.json
-  karma-webpack: 1.8.0 # https://github.com/webpack/karma-webpack/tags
-  karma-coverage: 1.1.1 # https://github.com/karma-runner/karma-coverage/tags
-  karma-intellij: 1.0.0 # https://github.com/karma-runner/karma-intellij/blob/master/package.json
-  istanbul: 0.4.5 # https://github.com/gotwarlost/istanbul/tags
-  nyc: 8.3.1 # https://github.com/istanbuljs/nyc/tags - Istanbul CLI
-  nightwatch: 0.9.8 # https://github.com/nightwatchjs/nightwatch/tags
+#  karma: 1.3.0 # https://github.com/karma-runner/karma/tags
+#  karma-phantomjs-launcher: 1.0.2 # https://github.com/karma-runner/karma-phantomjs-launcher/tags
+#  karma-chrome-launcher: 2.0.0 # https://github.com/karma-runner/karma-chrome-launcher/tags
+#  karma-safari-launcher: 1.0.0 # https://github.com/karma-runner/karma-safari-launcher/tags
+#  karma-firefox-launcher: 1.0.0 # https://github.com/karma-runner/karma-firefox-launcher/tags
+#  karma-ie-launcher: 1.0.0 # https://github.com/karma-runner/karma-ie-launcher/tags
+#  karma-mocha: 1.2.0 # https://github.com/karma-runner/karma-mocha/tags
+#  karma-mocha-reporter: 2.2.0 # https://github.com/litixsoft/karma-mocha-reporter/tags
+#  karma-sourcemap-loader: 0.3.7 # https://github.com/demerzel3/karma-sourcemap-loader/blob/master/package.json
+#  karma-webpack: 1.8.0 # https://github.com/webpack/karma-webpack/tags
+#  karma-coverage: 1.1.1 # https://github.com/karma-runner/karma-coverage/tags
+#  karma-intellij: 1.0.0 # https://github.com/karma-runner/karma-intellij/blob/master/package.json
+#  istanbul: 0.4.5 # https://github.com/gotwarlost/istanbul/tags
+#  nyc: 8.3.1 # https://github.com/istanbuljs/nyc/tags - Istanbul CLI
+#  nightwatch: 0.9.8 # https://github.com/nightwatchjs/nightwatch/tags
   sinon: 2.0.0-pre.2 # https://github.com/sinonjs/sinon/tags
   expect: 1.20.2 # https://github.com/mjackson/expect/tags
   expect-jsx: 2.6.0 # https://github.com/algolia/expect-jsx/tags
@@ -212,10 +212,10 @@ devDependencies:
 
 
   # Documentation
-  jsdoc: 3.4.3 # https://github.com/jsdoc3/jsdoc/tags
-  ink-docstrap: 1.3.0 # https://github.com/docstrap/docstrap/tags
-  esdoc: 0.4.8 # https://github.com/esdoc/esdoc/tags
-  react-docgen: 2.10.0 # https://github.com/reactjs/react-docgen/tags
+#  jsdoc: 3.4.3 # https://github.com/jsdoc3/jsdoc/tags
+#  ink-docstrap: 1.3.0 # https://github.com/docstrap/docstrap/tags
+#  esdoc: 0.4.8 # https://github.com/esdoc/esdoc/tags
+#  react-docgen: 2.10.0 # https://github.com/reactjs/react-docgen/tags
 
   # System tools
   rimraf: 2.5.4 # https://github.com/isaacs/rimraf/tags
@@ -243,7 +243,7 @@ engines:
   node: ">=6.5.0 < 8"
   npm: ">=3.0.0 < 4"
 
-stylelint:
-  extends: stylelint-config-standard
-  rules:
-    indentation: tab
+#stylelint:
+#  extends: stylelint-config-standard
+#  rules:
+#    indentation: tab

@@ -1,5 +1,3 @@
-import { combinerReducers } from 'redux'
-
 import {
 {{#each actions}}
   {{constantCase actionType}},
@@ -9,31 +7,25 @@ import {
 /* PLOP-REDUCERS_AFTER_IMPORT */
 
 
-export default function {{camelCase name}}Reducer(state = {{getInitialState value}}, {type, payload, meta}) {
-
+export default function {{camelCase name}}Reducer(state = {{getInitialState value}}, { type, payload, meta }) {
   switch (type) {
     {{#each actions ~}}
       {{#if (is_cond ../value '==' 'object')}}
-    case '{{constantCase actionType}}': return {...state, ...payload}
+    case {{constantCase actionType}}: return {...state, ...payload}
       {{/if }}
       {{#if (is_cond ../value '==' 'array')}}
-    case '{{constantCase actionType}}': return [...state, ...payload]
+    case {{constantCase actionType}}: return [...state, ...payload]
       {{/if }}
       {{#if (is_cond ../value '==' 'string')}}
-    case '{{constantCase actionType}}': return payload
+    case {{constantCase actionType}}: return payload
       {{/if }}
       {{#if (is_cond ../value '==' 'number')}}
-    case '{{constantCase actionType}}': return payload
+    case {{constantCase actionType}}: return payload
       {{/if }}
     {{/each}}
     /* PLOP-REDUCER_CASE */
-    default: return state;
+    default: return state
   }
 }
 
 /* PLOP-FILE_END */
-
-<!--//export default combineReducers(-->
-<!--//  {{camelCase name}}Reducer,-->
-  <!--/* PLOP-REDUCERS_EXPORT */-->
-<!--//)-->

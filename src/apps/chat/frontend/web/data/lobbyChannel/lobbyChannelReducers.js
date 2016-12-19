@@ -9,10 +9,11 @@ import {
 } from './lobbyChannelActionTypes'
 
 
-export default function lobbyChannelReducer(state = {}, {type, payload, meta}) {
+export default function lobbyChannelReducer(state = {}, { type, payload, meta }) {
   switch (type) {
-    case CREATED: return {...payload, state: CREATED}
-    case CREATED: return {...payload, state: CREATED}
-    default: return state;
+    case CREATED:
+      return { ...payload, state: CREATED }
+    default:
+      return state;
   }
 }

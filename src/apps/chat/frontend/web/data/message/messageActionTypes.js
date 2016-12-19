@@ -4,4 +4,4 @@ const constantBuilder = makeConstantBuilder('chat', 'message')
 
 
 export const NEW = constantBuilder('NEW')
-export const NEW_MESSAGE_PUSHED_TO_CHANNEL = constantBuilder('NEW_MESSAGE_PUSHED_TO_CHANNEL')
+export const ADD_RECEIVED_MESSAGE = constantBuilder('ADD_RECEIVED_MESSAGE')

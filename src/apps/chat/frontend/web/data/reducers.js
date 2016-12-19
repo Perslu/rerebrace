@@ -1,24 +1,24 @@
-/* eslint new-cap:0 */
-
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 import { reducer as form } from 'redux-form'
 
-import message from './message/messageReducers';
-import user from './user/userReducers';
-import channelLobby from './lobbyChannel/lobbyChannelReducers';
-import currentUser from './currentUser/currentUserReducers';
+import message from './message/messageReducers'
+import user from './user/userReducers'
+import lobbyChannel from './lobbyChannel/lobbyChannelReducers'
+import currentUser from './currentUser/currentUserReducers'
 import socket from './socket/socketReducers'
+import presence from './presence/presenceReducers'
 
 
 export default function createReducer() {
   return combineReducers({
-    message,
-    user,
+    lobbyChannel,
     currentUser,
-    channelLobby,
+    message,
+    presence,
+    user,
     socket,
     form,
-  });
+  })
 }
 
 /* eslint-disable */

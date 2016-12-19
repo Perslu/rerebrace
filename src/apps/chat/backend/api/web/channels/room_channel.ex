@@ -22,12 +22,21 @@ defmodule Chat.RoomChannel do
     {:noreply, socket}
   end
 
+#  def handle_info(:after_activity, socket) do
+#    Presence.track(socket, socket.assigns.user, %{
+#      joined: 6969696969
+#    })
+#    push socket, "presence_diff", Presence.list(socket)
+#    {:noreply, socket}
+#  end
+
   def handle_in("message_new", message, socket) do
     broadcast! socket, "message_new", %{
       user: socket.assigns.user,
       body: message,
       timestamp: :os.system_time(:milli_seconds)
     }
+#    send self(), :after_activity
     {:noreply, socket}
   end
 

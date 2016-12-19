@@ -15,51 +15,69 @@ import {
 } from '../{{camelCase name}}Actions'
 
 import {
+  getState,
   /* PLOP-SELECTOR_IMPORT */
 } from '../{{camelCase name}}Selectors'
 
-import { getState } from '../{{camelCase name}}Selectors'
 import reducer from '../{{camelCase name}}Reducers'
 /* PLOP-AFTER_IMPORTS */
 
-describe('{{camelCase name}}', function () {
-  describe("Reducer", function () {
-    it("should return empty {{value}} on initialization", function () {
-      const initialState = {{getInitialState value}}
-      const state = reducer(undefined, {{getInitialState value}})
-      assert.equal(state, initialState)
-    })
+
+
+describe('{{camelCase name}}', () =>  {
+
+  describe('Reducer', () =>  {
 
     {{#if (is_cond value '==' 'object')}}
+    it('should return empty {{value}} on initialization', () =>  {
+      const state = reducer(undefined, {})
+      assert.isObject(state)
+    })
     {{#each actions}}
-    it("should change on {{camelCase actionName}} action", function () {
+
+    it('should change on {{camelCase actionName}} action', () =>  {
       const oldState = {}
-      const newState = reducer(oldState, {{constantCase actionName}}())
-      assert.equal(newState, oldState)
+      const newState = reducer(oldState, {{camelCase actionName}}())
+      assert.deepEqual(newState, oldState)
     })
     {{/each}}
     {{/if }}
     {{#if (is_cond ../value '==' 'array')}}
+    it('should return empty {{value}} on initialization', () =>  {
+      const state = reducer(undefined, {})
+      assert.isArray(state)
+    })
     {{#each actions}}
-    it("should change on {{camelCase actionName}} action", function () {
+
+    it('should change on {{camelCase actionName}} action', () =>  {
       const oldState = []
-      const newState = reducer(oldState, {{constantCase actionName}}())
-      assert.equal(newState.length, 1)
+      const newState = reducer(oldState, {{camelCase actionName}}())
+      assert.deepEqual(newState.length, 1)
     })
     {{/each}}
     {{/if }}
     {{#if (is_cond ../value '==' 'string')}}
+    it('should return empty {{value}} on initialization', () =>  {
+      const state = reducer(undefined, {})
+      assert.isString(state)
+    })
     {{#each actions}}
-    it("should change on {{camelCase actionName}} action", function () {
-      const newState = reducer("", {{constantCase actionName}}("new string"))
-      assert.equal(newState, "new string")
+
+    it('should change on {{camelCase actionName}} action', () =>  {
+      const newState = reducer('', {{camelCase actionName}}('new string'))
+      assert.equal(newState, 'new string')
     })
     {{/each}}
     {{/if }}
     {{#if (is_cond ../value '==' 'number')}}
+    it('should return empty {{value}} on initialization', () =>  {
+      const state = reducer(undefined, {})
+      assert.isNumber(state)
+    })
     {{#each actions}}
-    it("should change on {{camelCase actionName}} action", function () {
-      const newState = reducer(0, {{constantCase actionName}}(1))
+
+    it('should change on {{camelCase actionName}} action', () =>  {
+      const newState = reducer(0, {{camelCase actionName}}(1))
       assert.equal(newState, 1)
     })
     {{/each}}
@@ -68,12 +86,14 @@ describe('{{camelCase name}}', function () {
     /* PLOP-REDUCER_TESTS */
   })
 
-  describe("Actions", function () {
+
+  describe('Actions', () =>  {
     {{#each actions}}
-    it("{{camelCase actionName}} should return {{camelCase actionType}} action", function () {
-      const payload = "test payload"
+
+    it('{{camelCase actionName}} should return {{constantCase actionType}} action', () =>  {
+      const payload = 'test payload'
       const action = {{camelCase actionName}}(payload)
-      assert.equal(action.type, {{camelCase actionType}})
+      assert.equal(action.type, {{constantCase actionType}})
       assert.equal(action.payload, payload)
     })
     {{/each}}
@@ -82,14 +102,15 @@ describe('{{camelCase name}}', function () {
   })
 
 
-  describe("Epics", function () {
+  describe('Epics', () =>  {
 
     /* PLOP-EPIC_TESTS */
   })
 
 
-  describe("Selectors", function () {
-    it("should select {{name}} from global state", function () {
+  describe('Selectors', () =>  {
+
+    it('should select {{name}} from global state', () =>  {
       const initialState = {{getInitialState value}}
       const globalState = { {{name}}: initialState }
       assert.equal(getState(globalState), initialState)

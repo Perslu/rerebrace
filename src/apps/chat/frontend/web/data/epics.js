@@ -9,6 +9,6 @@ export default combineEpics(
   socket,
   lobbyChannel,
   currentUser,
-  //message,
-  user,
+  message,
+  user
 )

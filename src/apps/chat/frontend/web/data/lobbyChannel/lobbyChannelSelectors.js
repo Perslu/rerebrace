@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
-import { identity } from 'ramda'
+//import {  } from 'ramda'
 
 
-export const getMessages = state => state.message
-export const getAllMessagesSelector = createSelector(getMessages, identity)
+export const getState = state => state.lobbyChannel
+export const getLobbyChannelSelector = createSelector(getState, state => state.channel)

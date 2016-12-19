@@ -1,11 +1,16 @@
-import { NEW } from './messageActionTypes'
+import {
+  NEW,
+  ADD_RECEIVED_MESSAGE,
+} from './messageActionTypes'
 
 
-export default function messageReducer(state = [], action) {
-  switch (action.type) {
+export default function messageReducer(state = {}, { type, payload }) {
+  switch (type) {
     case NEW:
-      return state.concat([action.payload]);
+      return { ...state, [payload.localId]: payload }
+    case ADD_RECEIVED_MESSAGE:
+      return { ...state, [payload.localId]: payload }
     default:
-      return state;
+      return state
   }
 }
