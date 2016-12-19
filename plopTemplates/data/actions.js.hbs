@@ -1,0 +1,17 @@
+import { createWrappedAction } from '../utils'
+
+import {
+{{#each actions}}
+  {{constantCase actionType}},
+{{/each}}
+  /* PLOP-ACTION_TYPE_IMPORT */
+} from './{{camelCase name}}ActionTypes'
+
+
+{{#each actions}}
+export const {{camelCase actionName}} = createWrappedAction({{constantCase actionType}})
+{{/each}}
+/* PLOP-ACTION_DEFINITION */
+
+
+/* PLOP-FILE_END */

@@ -79,6 +79,7 @@ app.get('/dll/:file', function (req, res, next) {
 })
 
 app.get('/*', function (req, res, next) {
+  console.log("outputPath", webpackCompiler.outputPath)
   const filename = path.join(webpackCompiler.outputPath, 'index.html');
   webpackCompiler.outputFileSystem.readFile(filename, (err, result) => {
     if(err) {

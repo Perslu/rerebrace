@@ -1,0 +1,105 @@
+import { assert } from 'chai'
+
+import {
+{{#each actions}}
+  {{constantCase actionType}},
+{{/each}}
+  /* PLOP-ACTION_TYPE_IMPORT */
+} from '../{{camelCase name}}ActionTypes'
+
+import {
+{{#each actions}}
+  {{camelCase actionName}},
+{{/each}}
+  /* PLOP-ACTION_IMPORT */
+} from '../{{camelCase name}}Actions'
+
+import {
+  /* PLOP-SELECTOR_IMPORT */
+} from '../{{camelCase name}}Selectors'
+
+import { getState } from '../{{camelCase name}}Selectors'
+import reducer from '../{{camelCase name}}Reducers'
+/* PLOP-AFTER_IMPORTS */
+
+describe('{{camelCase name}}', function () {
+  describe("Reducer", function () {
+    it("should return empty {{value}} on initialization", function () {
+      const initialState = {{getInitialState value}}
+      const state = reducer(undefined, {{getInitialState value}})
+      assert.equal(state, initialState)
+    })
+
+    {{#if (is_cond value '==' 'object')}}
+    {{#each actions}}
+    it("should change on {{camelCase actionName}} action", function () {
+      const oldState = {}
+      const newState = reducer(oldState, {{constantCase actionName}}())
+      assert.equal(newState, oldState)
+    })
+    {{/each}}
+    {{/if }}
+    {{#if (is_cond ../value '==' 'array')}}
+    {{#each actions}}
+    it("should change on {{camelCase actionName}} action", function () {
+      const oldState = []
+      const newState = reducer(oldState, {{constantCase actionName}}())
+      assert.equal(newState.length, 1)
+    })
+    {{/each}}
+    {{/if }}
+    {{#if (is_cond ../value '==' 'string')}}
+    {{#each actions}}
+    it("should change on {{camelCase actionName}} action", function () {
+      const newState = reducer("", {{constantCase actionName}}("new string"))
+      assert.equal(newState, "new string")
+    })
+    {{/each}}
+    {{/if }}
+    {{#if (is_cond ../value '==' 'number')}}
+    {{#each actions}}
+    it("should change on {{camelCase actionName}} action", function () {
+      const newState = reducer(0, {{constantCase actionName}}(1))
+      assert.equal(newState, 1)
+    })
+    {{/each}}
+    {{/if }}
+
+    /* PLOP-REDUCER_TESTS */
+  })
+
+  describe("Actions", function () {
+    {{#each actions}}
+    it("{{camelCase actionName}} should return {{camelCase actionType}} action", function () {
+      const payload = "test payload"
+      const action = {{camelCase actionName}}(payload)
+      assert.equal(action.type, {{camelCase actionType}})
+      assert.equal(action.payload, payload)
+    })
+    {{/each}}
+
+    /* PLOP-ACTION_TESTS */
+  })
+
+
+  describe("Epics", function () {
+
+    /* PLOP-EPIC_TESTS */
+  })
+
+
+  describe("Selectors", function () {
+    it("should select {{name}} from global state", function () {
+      const initialState = {{getInitialState value}}
+      const globalState = { {{name}}: initialState }
+      assert.equal(getState(globalState), initialState)
+    })
+
+    /* PLOP-SELECTOR_TESTS */
+  })
+
+  /* PLOP-AFTER_DEFAULT_TESTS */
+})
+
+
+/* PLOP-FILE_END */

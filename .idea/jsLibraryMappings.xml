@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{perslu-starter/node_modules}" />
-    <file url="PROJECT" libraries="{chai-DefinitelyTyped, express, express-DefinitelyTyped, immutable-DefinitelyTyped, jsdom-DefinitelyTyped, lodash-DefinitelyTyped, mocha-DefinitelyTyped, node-DefinitelyTyped, perslu-starter/node_modules, react-DefinitelyTyped, react-helmet-DefinitelyTyped, react-router-DefinitelyTyped, react-router-redux-DefinitelyTyped, redux-DefinitelyTyped, redux-form-DefinitelyTyped}" />
+    <file url="PROJECT" libraries="{chai-DefinitelyTyped, express, express-DefinitelyTyped, immutable-DefinitelyTyped, jsdom-DefinitelyTyped, lodash-DefinitelyTyped, mocha-DefinitelyTyped, node-DefinitelyTyped, perslu-starter/node_modules, phoenix-DefinitelyTyped, ramda-DefinitelyTyped, react-DefinitelyTyped, react-helmet-DefinitelyTyped, react-router-DefinitelyTyped, react-router-redux-DefinitelyTyped, recompose-DefinitelyTyped, redux-DefinitelyTyped, redux-form-DefinitelyTyped, reselect-DefinitelyTyped}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>

@@ -1,0 +1,52 @@
+// Babel configuration
+// All options are default for development environment.
+// All can be overriden by 'env' option below specifically for given environment.
+{
+  babelrc: false, // Stop traversing
+  sourceMaps: "both",
+  compact: false,
+  // During transpiling plugins run before presets
+  plugins: [ // Plugins ordering is: FIRST to LAST
+    "transform-object-rest-spread",
+    "react-hot-loader/babel"
+  ],
+  // Preset's integrated plugins: react
+  // syntax-flow
+  // syntax-jsx
+  // transform-flow-strip-types
+  // transform-react-jsx
+  // transform-react-display-name
+  presets: [ // Presets ordering is: LAST to FIRST
+    [
+      "es2015", //Runs last. modules - we want to work with ES6 modules. No transformation for AMD, UMD, SystemJS or CommonJS (Defaults to CommonJS)
+      {
+        modules: false,
+        loose: true
+      }
+    ],
+    "react"
+  ],
+  env: { // Based on BABEL_ENV
+    production: { // cross-env BABEL_ENV=production
+      sourceMaps: false,
+      minified: true,
+      comments: false,
+      compact: true,
+      plugins: [
+        // From React Lego starter https://github.com/peter-mouland/react-lego/blob/master/.babelrc
+        "transform-react-remove-prop-types",
+        "transform-react-constant-elements",
+        "transform-react-inline-elements"
+      ]
+    },
+    test: { // cross-env BABEL_ENV=test
+      presets: [
+        "es2015",
+        "react"
+      ],
+      plugins: [
+        "istanbul"
+      ]
+    }
+  }
+}

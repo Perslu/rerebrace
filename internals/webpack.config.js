@@ -13,6 +13,7 @@ const isProd = nodeEnv === 'production';
 
 
 const __root = path.join(__dirname, '../')
+console.log("Root:", __root)
 const __src = path.join(__root, 'src')
 const PATHS = {
   assets: path.join(__src, 'mobile/assets'),
