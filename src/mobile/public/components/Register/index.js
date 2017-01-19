@@ -1,38 +1,20 @@
 import React from 'react'
-import "./styles.css"
-import TextButton from '../TextButton'
-import { Field } from 'redux-form'
-
+import {Field} from 'redux-form'
+import UIFormInput from 'UI/form/UIFormInput'
+import UIButton from 'UI/button/UIButton'
 
 const submit = (values) => console.log(values);
 
-const renderField = ({ input, type, meta: { touched, error, warning, invalid, ...other }, ...props }) => {
-  console.log(other, props, invalid);
-
-  const fieldValidityClass=(invalid) ? "fieldInvalid":'fieldValid';
-  const fieldStateClass=(touched) ? fieldValidityClass:'fieldInitial';
-
-
-  return (<div>
-    <div>
-      <input {...input} className={fieldStateClass} placeholder={props.placeholder} type={type}/>
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  </div>);
-};
-
-const Register = (props) =>{
-
-  return (<div>
-    <form onSubmit={props.handleSubmit(submit)} name='contact' id='registerForm'>
-      <Field component={renderField}  type="text" name="name" placeholder="Name"/>
-      <Field component={renderField} type="text" name="email" placeholder="Email"/>
-      <Field component={renderField} type="text" name="password" placeholder="Password (min.6 characters)"/>
-      <Field component={renderField} type="text" name="confirmPassword" placeholder="Confirm Password"/>
-      <TextButton type='submit' tekst='Create account'>  </TextButton>
+const Register = (props) => {
+  return <div>
+    <form onSubmit={props.handleSubmit(submit)} id='registerForm' name="form">
+      <Field component={UIFormInput} type="text" name="name" label="Name"/>
+      <Field component={UIFormInput} type="text" name="email" label="E-mail"/>
+      <Field component={UIFormInput} type="text" name="password" label="Password"/>
+      <Field component={UIFormInput} type="text" name="confirmPassword" label="Confirm password"/>
+      <UIButton type='submit'>Create account</UIButton>
     </form>
-  </div>);
+  </div>;
 };
-
 
 export default Register

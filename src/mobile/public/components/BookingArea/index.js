@@ -2,10 +2,10 @@ import React from 'react'
 import { Field, reduxForm  } from 'redux-form';
 import { formValueSelector } from 'redux-form'
 import {connect} from 'react-redux';
-
-import BookingCalendar from '../BookingCalendar'
 import DateTimeMoment from '../DateTimeMoment'
 import ProfileRatesForm from '../ProfileRatesForm'
+import UIFormInput from 'UI/form/UIFormInput'
+import UIButton from 'UI/button/UIButton'
 
 const validate = values => {
   const errors = {};
@@ -19,49 +19,55 @@ const validate = values => {
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = 'Invalid email address'
   }
+  if (!values.phone) {
+    errors.phone = 'Required'
+  } else if (values.phone.length <7) {
+    errors.phone = 'Must be min 8 characters'
+  }
+  if (!values.city) {
+    errors.city = 'Required'
+  }
+  if (!values.streetName) {
+    errors.streetName = 'Required'
+  }
+  if (!values.number) {
+    errors.number = 'Required'
+  }
+  if (!values.roomNumber) {
+    errors.roomNumber = 'Required'
+  }
+  if (!values.place) {
+    errors.place = 'Required'
+  }
+  if (!values.dateTimeMoment) {
+    errors.dateTimeMoment = 'Required'
+  }
   return errors
 };
 
-const renderField = ({ input, label, type, meta: { touched, error, invalid } }) => {
-
-   const fieldValidityClass = (invalid) ? "fieldInvalid" : 'fieldValid';
-   const className =(touched) ? fieldValidityClass : 'fieldInitial';
-
-  return (
-    <div>
-      <label>{label}</label>
-      <div>
-        <input {...input} className={className} placeholder={label} type={type}/>
-        {touched && error && <span>{error}</span>}
-      </div>
-    </div>
-  )
-};
-const renderError = ({ meta: { touched, error } }) => touched && error ? <span>{error}</span> : false
-const renderSelectList = ({meta: { touched, error}  })=> touched && error ? <span>{error}</span> : false
 const submit = (values) => {console.log('success', values)}
 
 const HotelAddress = () => {
   return <div>
-    <Field name="city" component={renderField} type="text" label="City"/>
-    <Field name="streetName" component={renderField} type="text" label="Street name"/>
-    <Field name="number" component={renderField} type="text" label="Number"/>
-    <Field name="roomNumber" type="text" component={renderField} label="Room number"/>
+    <Field name="city" component={UIFormInput} type="text" label="City"/>
+    <Field name="streetName" component={UIFormInput} type="text" label="Street name"/>
+    <Field name="number" component={UIFormInput} type="text" label="Number"/>
+    <Field name="roomNumber" type="text" component={UIFormInput} label="Room number"/>
   </div>
 };
 const ApartmentAddress = () => {
   return <div>
-    <Field name="city" component={renderField} type="text" label="City"/>
-    <Field name="streetName" component={renderField} type="text" label="Street number"/>
-    <Field name="number" component={renderField} type="text" label="Number"/>
-    <Field name="roomNumber" type="text" component={renderField} label="Room number"/>
+    <Field name="city" component={UIFormInput} type="text" label="City"/>
+    <Field name="streetName" component={UIFormInput} type="text" label="Street number"/>
+    <Field name="number" component={UIFormInput} type="text" label="Number"/>
+    <Field name="roomNumber" type="text" component={UIFormInput} label="Room number"/>
   </div>
 };
 const PublicArea =() => {
   return <div>
-    <Field name="city" component={renderField} type="text" label="City"/>
-    <Field name="streetName" component={renderField} type="text" label="Street name"/>
-    <Field name="place" component={renderField} type="text" label="Meeting place name"/>
+    <Field name="city" component={UIFormInput} type="text" label="City"/>
+    <Field name="streetName" component={UIFormInput} type="text" label="Street name"/>
+    <Field name="place" component={UIFormInput} type="text" label="Meeting place name"/>
   </div>
 };
 const ChoosePlase = (props) =>{
@@ -71,7 +77,7 @@ const ChoosePlase = (props) =>{
     {(props.meetingPlace==='public')? <PublicArea/>: null}
   </div>
 };
-const selector = formValueSelector('syncValidation');
+const selector = formValueSelector('bookingForm');
 const ChoosePlases = connect(
   state => ({
     meetingPlace: selector(state, 'meetingPlace'),
@@ -79,14 +85,12 @@ const ChoosePlases = connect(
 )(ChoosePlase);
 
 const BookingArea = (props) => {
-  const { handleSubmit, submitting,otherValue } = props;
-
   return (
-    <form onSubmit={handleSubmit(submit)} >
+    <form onSubmit={props.handleSubmit(submit)} id='bookingForm' name="bookingForm">
       <Field name="dateTimeMoment" component={DateTimeMoment} label="Date and time"/>
-      <Field name="name" type="text" component={renderField} label="Name"/>
-      <Field name="email" type="email" component={renderField} label="Email"/>
-      <Field name="phone" type="number" component={renderField} label="Phone"/>
+      <Field name="name" type="text" component={UIFormInput} label="Name"/>
+      <Field name="email" type="email" component={UIFormInput} label="E-mail"/>
+      <Field name="phone" type="number" component={UIFormInput} label="Phone"/>
 
       <div>
         <label><Field name="meetingPlace" component='input' type="radio" value="hotel"/> Hotel</label>
@@ -94,20 +98,17 @@ const BookingArea = (props) => {
         <label><Field name="meetingPlace" component='input' type="radio" value="public"/> Public area</label>
         <ChoosePlases/>
       </div>
-
-      <button type="submit">Submit</button>
+      <UIButton type='submit'>Book now</UIButton>
 
     </form>
   )
 };
 
-
 export default reduxForm({
-  form: 'syncValidation',
+  form: 'bookingForm',
   validate,
   initialValues :{
     meetingPlace: "hotel"
   }
-
 })(BookingArea)
 

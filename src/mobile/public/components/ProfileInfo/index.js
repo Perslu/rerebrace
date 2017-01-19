@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles.css';
 import SectionDark from '../SectionDark';
 import SectionHeader from '../SectionHeader';
 import SectionContent from '../SectionContent';

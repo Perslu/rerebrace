@@ -5,7 +5,6 @@ import SectionHeader from '../SectionHeader';
 import SectionContent from '../SectionContent';
 import ProfileRatesForm from '../ProfileRatesForm'
 
-
 const ProfileRates = () => {
   return (
     <div className="ProfileRates">
@@ -18,5 +17,6 @@ const ProfileRates = () => {
     </div>
   );
 };
+
 
 export default ProfileRates

@@ -1,57 +1,47 @@
 import React from 'react'
-import "./styles.css"
 import {Field, formValueSelector} from 'redux-form'
 import {connect} from 'react-redux'
-import TextButton from '../TextButton'
-import SelectInput from '../SelectInput'
-import Textarea from '../Textarea'
-
+import UIFormSelect from 'UI/form/UIFormSelect'
+import UIFormTextarea from 'UI/form/UIFormTextarea'
+import UIFormInput from 'UI/form/UIFormInput'
+import UIButton from 'UI/button/UIButton'
+import UIFormInputIconAddon from 'UI/form/UIFormInputIconAddon'
+import EmailIcon from 'react-icons/fa/envelope-o'
+import AppleIcon from 'react-icons/fa/apple'
 
 const submit = (values) => console.log(values);
 const selector = formValueSelector('contactForm');
 
+const arr = [
+  {value:'', label:''},
+  {value:'Grapefruit', label:'Grapefruit'},
+  {value:'Lime', label:'Lime'},
+  {value:'Coconut', label:'Coconut'},
+  {value:'Mango', label:'Mango'},
+  {value:'Mango2', label:'Mango2'},
+]
+const PassComponent = (props) => {
 
-const renderField = ({ input, label, type, value, meta: { touched, error, warning, invalid, ...other }, ...props }) => {
-
-  const fieldValidityClass=(invalid) ? "fieldInvalid":'fieldValid';
-  const fieldStateClass=(touched) ? fieldValidityClass:'fieldInitial';
-
-  return (<div>
-    <div>
-      <label htmlFor={type}>{label}</label>
-      <input {...input}  className={fieldStateClass}  placeholder={props.placeholder} type={type} value={value} label="Napisz wiadomość"/>
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  </div>);
-};
-
-
-
-
+}
 const ContactForm = (props) => {
-
   return (<div>
-    <form  onSubmit={props.handleSubmit(submit)} id="loginForm" className="loginForm">
-
-      <Field component={renderField} type="text" name="email" placeholder="mail@example.com" label="Email"/>
-      <Field component={SelectInput} name="selectInput" label="Select subject"/>
-      <Field component={renderField} type="text" name="subject" label="Subject" placeholder={props.selectInput}/>
-
-      <Field component={Textarea} name="textarea"  cols="20" rows="5" label="Your message"/>
-
-
-      <TextButton type='submit' tekst='Send Message'> </TextButton>
+    <form onSubmit={props.handleSubmit(submit)} id='loginForm' name="form">
+      <Field component={UIFormInput} type="text" name="email"  label="Email" requiredFlag primary
+             leftAddon={(props) => <UIFormInputIconAddon {...props} icon={EmailIcon} left/>}
+             rightAddon={(props) => <UIFormInputIconAddon {...props} icon={AppleIcon} right/>}
+      />
+      <Field component={UIFormSelect} primary name="selectInput" label="Select subject" options={arr} requiredFlag/>
+      <Field component={UIFormInput} primary type="text" name="subject" label="Subject" placeholder={props.selectInput} requiredFlag/>
+      <Field component={UIFormTextarea} primary name="textarea"  cols="20" rows="5" label="Your message" requiredFlag/>
+      <UIButton primary type='submit'>Send Message</UIButton>
     </form>
   </div>);
 };
-
-
 
 export default connect(
   state => ({
     subject: selector(state, 'subject'),
     selectInput: selector(state, 'selectInput')
-
   })
 )(ContactForm)
 

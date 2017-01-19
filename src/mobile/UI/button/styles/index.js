@@ -1,3 +1,3 @@
-/**
- * Created by Magda on 2017-01-04.
- */
+import {calcFromBaseFont} from 'UI/typo/utils'
+
+export const buttonFont = calcFromBaseFont(1)

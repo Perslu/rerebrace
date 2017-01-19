@@ -1,18 +1,15 @@
 import React from 'react';
-import "./styles.css"
 import ContactForm from '../ContactForm'
-
-
+import SectionDark from '../SectionDark'
+import SectionHeader from '../SectionHeader'
 
 const ContactPanel = (props) => (
-  <div className="LoginPanel">
-
-    <div className="HeaderWelcome">Contact us </div>
-    <div>
-      <ContactForm {...props}/>
-    </div>
-
-
+  <div>
+    <SectionHeader text="contact info" primary />
+    <SectionDark pl={100} pr={100} pt={20} pb={20} primary>
+        <ContactForm {...props}/>
+    </SectionDark>
   </div>);
+
 
 export default ContactPanel

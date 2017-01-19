@@ -1,33 +1,35 @@
 import React from 'react'
-import "./styles.css"
 import {Field} from 'redux-form'
-import TextButton from '../TextButton'
-import { Link } from 'react-router'
+import {Link} from 'react-router'
+import injectSheet from 'UI/styles/jss'
+import UIFormInput from 'UI/form/UIFormInput'
+import UIButton from 'UI/button/UIButton'
 
 const submit = (values) => console.log(values);
 
-const renderField = ({ input, type, meta: { touched, error, warning, invalid, ...other }, ...props }) => {
-  console.log(touched,other, props, invalid);
-
-  const fieldValidityClass=(invalid) ? "fieldInvalid":'fieldValid';
-  const fieldStateClass=(touched) ? fieldValidityClass:'fieldInitial';
-
+const LoginForm = ({sheet: {classes}, ...props}) => {
   return (<div>
-    <div>
-      <input {...input}  className={fieldStateClass} placeholder={props.placeholder} type={type} />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  </div>);
-};
-
-const LoginForm = (props) => {
-  return (<div>
-    <form  onSubmit={props.handleSubmit(submit)} id="loginForm" className="loginForm">
-      <Field component={renderField} type="text" className='email' name="email" placeholder="email" /*label="Email"*//>
-      <Field component={renderField} type="text" className='password' name="password" placeholder="password" />
-      <TextButton type='submit' tekst='Login'>  </TextButton>
+    <form onSubmit={props.handleSubmit(submit)} id='loginForm' name="form">
+      <Field component={UIFormInput} type="text" name="email" placeholder="e-mail" label="Email"/>
+      <Field component={UIFormInput} type="text" name="password" placeholder="password" label="Password"/>
+      <UIButton type='submit'>Login</UIButton>
     </form>
-    <Link to="/"><div className="ForgotPassword">Forgot your password?</div></Link>
+    <Link to="/" className={classes.aLink}>
+      <div className={classes.ForgotPassword}>Forgot your password?</div>
+    </Link>
   </div>);
 };
-export default LoginForm
+
+const styles = {
+  ForgotPassword: {
+    marginBottom: '40px',
+    color       : '#909fa7',
+    textAlign   : 'right',
+    fontSize    : '.9rem',
+  },
+  aLink         : {
+    textDecoration: 'none',
+  }
+}
+
+export default injectSheet(styles)(LoginForm)

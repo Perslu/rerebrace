@@ -1,12 +1,10 @@
 import React from 'react';
-import "./styles.css";
-import TextButton from '../TextButton'
-import { Link } from 'react-router'
+import UILinkButton from 'UI/button/UILinkButton'
 
 const RegisterButton = (props) =>
   <div>
     <div >Don't have account?</div>
-    <Link to="/RegisterMemberKind"><TextButton tekst='Register now' >  </TextButton></Link>
+    <UILinkButton to="/RegisterMemberKind">Register</UILinkButton>
   </div>;
 
 export default RegisterButton

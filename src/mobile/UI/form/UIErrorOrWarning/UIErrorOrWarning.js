@@ -1,5 +1,5 @@
 import React from 'react'
-import injectSheet from 'react-jss'
+import injectSheet from 'UI/styles/jss'
 
 const UIErrorOrWarning = ({  sheet: {classes}, ...props }) => {
   const {touched, error, warning} = props;
@@ -10,7 +10,8 @@ const UIErrorOrWarning = ({  sheet: {classes}, ...props }) => {
 
 const styles = {
   errorColor: {
-    color: 'red'
+    color: 'red',
+    transition: 'all 1.2s ease-in-out',
   },
   warningColor: {
     color: 'orange'

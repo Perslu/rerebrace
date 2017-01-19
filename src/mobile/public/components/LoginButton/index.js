@@ -1,9 +1,7 @@
 import React from 'react';
-import "./styles.css";
-import {Link} from 'react-router';
-import TextButton from '../TextButton'
+import UILinkButton from 'UI/button/UILinkButton'
 
-const LoginButton = (props) => <Link to="/LoginPanel"><TextButton tekst='Login'> </TextButton></Link>;
+const LoginButton = (props) => <UILinkButton to="/LoginPanel">Login</UILinkButton>
 
 export default LoginButton
 

@@ -6,6 +6,7 @@
         <entryData>
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/src/apps/chat/frontend/web" />
+            <path value="file://$PROJECT_DIR$/src/mobile" />
           </resourceRoots>
         </entryData>
       </entry>

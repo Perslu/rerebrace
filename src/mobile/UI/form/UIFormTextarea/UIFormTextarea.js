@@ -2,7 +2,7 @@ import React from 'react'
 import UIValidationColorResult from 'UI/form/UIValidationColorResult'
 import UIErrorOrWarning from 'UI/form/UIErrorOrWarning'
 import UILabelForInput from 'UI/form/UILabelForInput'
-import {inputStyle, classesForValidatedClass, formSection} from 'UI/styles'
+import {inputStyle, classesForValidatedClass, formSection, formIcon, inputGroup} from 'UI/styles'
 import {injectSheet, lightBgColor, darkFontColor, lightFontColor} from 'UI/styles'
 
 const UIFormTextarea = ({input, label, name, value, meta: {touched, error, warning}, sheet: {classes}, primary, requiredFlag, ...props}) => {
@@ -10,7 +10,7 @@ const UIFormTextarea = ({input, label, name, value, meta: {touched, error, warni
   return (
     <div className={classes.section}>
       <UILabelForInput label={label} name={name} requiredFlag={requiredFlag} primary={primary}/>
-      <div>
+      <div className={classes.inputGroup}>
         <textarea {...input} className={classes[props.validatedClass] + ' ' + classes.textarea + ' ' + selectStyles}
                   cols={props.cols} rows={props.rows} value={value}/>
       </div>
@@ -21,6 +21,7 @@ const UIFormTextarea = ({input, label, name, value, meta: {touched, error, warni
 
 const styles = {
   section : {extend: formSection},
+  inputGroup: inputGroup,
   textarea: {extend: [inputStyle]},
   primary : {
     backgroundColor: lightBgColor.string(),

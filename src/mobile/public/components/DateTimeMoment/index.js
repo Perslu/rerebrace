@@ -1,5 +1,9 @@
 import React from 'react'
 import moment from 'moment'
+import UIValidationColorResult from 'UI/form/UIValidationColorResult'
+import UIErrorOrWarning from 'UI/form/UIErrorOrWarning'
+import UILabelForInput from 'UI/form/UILabelForInput'
+import injectSheet from 'UI/styles/jss'
 
 const getDateFromField = (fields) => {
   console.log('field', fields);
@@ -31,15 +35,6 @@ const onTimeChange = (fields, event) => {
   /*return field.input.onChange( moment.utc(value.format('YYYY-MM-DD') +'T'+ event.target.value+':00.000Z'))*/
 };
 
-{/*const fieldStateClass = (fields) => {
- const fieldValidityClass = (fields.date.meta.invalid) ? "fieldInvalid" : 'fieldValid';
- return (fields.date.input.value ) ? fieldValidityClass : 'fieldInitial';
- };
- const fieldStateClassTime = (fields) => {
- const fieldValidityClassTime = (fields.time.meta.invalid) ? "fieldInvalid" : 'fieldValid';
- return ( fields.time.input.value) ? fieldValidityClassTime : 'fieldInitial';
- };*/
-}
 
 const DateTimeState = React.createClass({
   onDateChange (event) {
@@ -86,12 +81,11 @@ const DateTimeState = React.createClass({
   render(){
     const field = Object.assign({}, this.props) // const field = {...this.props} - doesn't work
     return (
-      <div>
-        <input type="date" onBlur={this.onBlur} onFocus={field.input.onFocus}
-               value={this.state.date} onChange={this.onDateChange}/>
-        {<span>{ field.meta.touched && field.meta.error}</span>}
-        <input type="time" onBlur={this.onBlur} onFocus={field.input.onFocus}
-               value={this.state.time} onChange={this.onTimeChange}/>
+      <div className="section">
+        <UILabelForInput label={field.label} name={field.name}/>
+        <input type="date" onBlur={this.onBlur} onFocus={field.input.onFocus} value={this.state.date} onChange={this.onDateChange} className={field.sheet.classes[field.validatedClass] +' '+ field.sheet.classes.inputForm}/>
+        <input type="time" onBlur={this.onBlur} onFocus={field.input.onFocus} value={this.state.time} onChange={this.onTimeChange} className={field.sheet.classes[field.validatedClass] +' '+ field.sheet.classes.inputForm}/>
+        <UIErrorOrWarning touched={field.meta.touched} error={field.meta.error} warning={field.meta.warning}/>
       </div>
     )
   },
@@ -103,6 +97,27 @@ const DateTimeState = React.createClass({
   }
 });
 
+const styles = {
+  inputForm: {
+    width           : '62%',
+    padding         : '6px 16px',
+    color           : '#909fa7',
+    backgroundColor : '#0d1821',
+    borderRadius    : '4px',
+    boxShadow       : 'inset 1px 2px 0 #0c131b,1px 1px 0 #0b131b',
+    webkitTransition: 'border-color ease-in-out .15s,box-shadow ease-in-out .15s',
+    transition      : 'border-color ease-in-out .15s,box-shadow ease-in-out .15s'
+  },
+  fieldInvalid: {
+    borderColor: 'red'
+  },
+  fieldValid: {
+    borderColor: 'blue'
+  },
+  fieldInitial: {
+    border:  'none'
+  }
+}
 const DateTimeMoment = (fields) => {
   console.log(fields);
   return (
@@ -120,4 +135,4 @@ const DateTimeMoment = (fields) => {
   )
 };
 
-export default DateTimeState
+export default injectSheet(styles)(UIValidationColorResult(DateTimeState))

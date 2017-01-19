@@ -16,6 +16,7 @@ const getStyles = (props) => {
 };
 
 
+
 const SpacingHOC = (Comp) => (props) => <Comp {...props} spacingStyle={getStyles(props)} />;
 //
 //SpacingHOC.PropTypes = {

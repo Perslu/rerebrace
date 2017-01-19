@@ -1,10 +1,7 @@
 import React from 'react';
-import './styles.css';
+import injectSheet from 'UI/styles/jss'
 
-
-
-
-const ProfileRatesForm = React.createClass({
+const ProfileRatesForm = ({sheet: {classes}, primary, ...props}) => React.createClass({
   onClick(e){
     this.setState({selected: !this.state.selected});
     console.log(this);
@@ -76,6 +73,42 @@ const ProfileRatesForm = React.createClass({
 });
 
 
+const styles = {
+  RatesRow: {
+    fontSize: '.8rem',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    justifyContent: 'space-between',
+    borderBottom: '2px solid rgb(34, 34, 34)',
+  },
+  RatesRow_p: {
+    flexGrow: '1',
+    margin: '0',
+  },
+// RatesRow:not(.Header) .RatesColumn:last-child {
+//  color: #deff34;
+//  font-size: 1.1rem;
+//},
+  Header: {
+    textTransform: 'uppercase',
+  },
+
+  RatesColumn: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    width: '33.3%',
+    padding: '4px',
+    borderLeft: '2px solid rgb(34, 34, 34)',
+    borderRight: '2px solid rgb(34, 34, 34)',
+    backgroundColor: 'rgb(51, 51, 51)',
+    background: 'linear-gradient(70deg, rgba(34, 34, 34, 0.4), rgba(51, 51, 51, 1) 95%)',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+
+  },
+}
 
 
 /*ProfileRates.Prototypes = {
@@ -86,4 +119,4 @@ const ProfileRatesForm = React.createClass({
 
 
 
-export default ProfileRatesForm
+export default injectSheet(styles)(ProfileRatesForm)

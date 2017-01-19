@@ -1,7 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router';
-import TextButton from '../TextButton'
+import UILinkButton from 'UI/button/UILinkButton'
 
-const ContactButton = (props) => <Link to="/ContactPanel"><TextButton tekst='Contact'> </TextButton></Link>;
+const ContactButton = (props) => <UILinkButton to="/ContactPanel">Contact</UILinkButton>
 
 export default ContactButton

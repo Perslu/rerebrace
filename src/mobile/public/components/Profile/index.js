@@ -4,13 +4,11 @@ import CoverPhoto from '../CoverPhoto';
 import singleCoverPhoto from '../../../assets/single_cover.jpg'
 import AppHeader from '../AppHeader';
 import AppContainer from '../AppContainer';
-
 import AboutSection from './AboutSection';
 import ProfileInfo from '../ProfileInfo';
 import ProfileAppearance from '../ProfileAppearance';
 import ProfileRates from '../ProfileRates';
-import BookNowButton from '../BookNowButton';
-
+import UILinkButton from 'UI/button/UILinkButton'
 
 const renderProfile = props => {
   const imgUrl = props.profile.picture.large;
@@ -23,7 +21,7 @@ const renderProfile = props => {
       <ProfileInfo/>
       <ProfileAppearance/>
       {/*<ProfileRates/>*/}
-      <BookNowButton/>
+      <UILinkButton to="/BookingArea">Book online now</UILinkButton>
     </AppContainer>
   )
 };

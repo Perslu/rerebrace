@@ -1,8 +1,14 @@
 import React from 'react';
-import "./styles.css";
+import injectSheet from 'UI/styles/jss'
 
 import Section from '../Section';
 
-const SectionLight = (props) => <Section {...props} className="SectionLight">{props.children}</Section>;
+const SectionLight = ({sheet: {classes}},props) => <Section {...props} className={classes.SectionLight}>{props.children}</Section>;
 
-export default SectionLight
+const styles = {
+  SectionLight: {
+    background: '#fff'
+  }
+}
+
+export default  injectSheet(styles)(SectionLight)

@@ -9,9 +9,9 @@ module.exports = function (plop) {
       case 'string': return '\'\''
       case 'number': return '0'
     }
-        
+
   })
-  
+
   plop.addHelper('is_cond', function (v1, operator, v2) {
     switch (operator) {
       case '==':
@@ -38,8 +38,8 @@ module.exports = function (plop) {
         return true
     }
   })
-  
-  
+
+
   plop.setGenerator('data', {
     description: 'Creates new redux module',
     prompts: [
@@ -138,10 +138,45 @@ module.exports = function (plop) {
       },
     ],
   })
-  plop.setGenerator('component', {
+  plop.setGenerator('UI component', {
     description: 'TODO - Creates new stateless component',
-    prompts: [],
-    actions: [],
+    prompts: [
+      {
+        type: 'list',
+        name: 'dest_folder',
+        message: 'Choose application:',
+        choices: [
+          {name: 'Chat', value: 'src/apps/chat/frontend/web/data/', checked: true},
+          {name: 'Perslu.com-mobile', value: 'src/mobile/UI/'},
+        ]
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is component\'s name?',
+        validate: value => ((/.+/).test(value)) ? true : 'name is required',
+      },
+      {
+        type: 'confirm',
+        name: 'is_field',
+        message: 'Do you want to generate Field props?',
+        default: false
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: '{{dest_folder}}{{name}}/{{name}}.js',
+        templateFile: 'plopTemplates/UI_component/component.js.hbs',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
+        path: '{{dest_folder}}{{name}}/index.js',
+        templateFile: 'plopTemplates/UI_component/index.js.hbs',
+        abortOnFail: true,
+      },
+    ]
   })
   plop.setGenerator('container', {
     description: 'TODO - Creates new container component',
