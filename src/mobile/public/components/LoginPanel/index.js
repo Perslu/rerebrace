@@ -1,5 +1,5 @@
 import React from 'react'
-import RegisterButton from '../RegisterButton'
+import UILinkButton from 'UI/button/UILinkButton'
 import LoginForm from '../LoginForm'
 import injectSheet from 'UI/styles/jss'
 
@@ -8,7 +8,8 @@ const LoginPanel = ({sheet: {classes}, ...props}) => (
     <div className={classes.headerWelcome}> Welcome in Perslu Kingdom</div>
     <div>
       <LoginForm {...props}/>
-      <RegisterButton {...props}/>
+      <div >Don't have account?</div>
+      <UILinkButton to="/RegisterMemberKind">Register</UILinkButton>
     </div>
   </div>);
 

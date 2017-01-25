@@ -3,7 +3,7 @@ import moment from 'moment'
 import UIValidationColorResult from 'UI/form/UIValidationColorResult'
 import UIErrorOrWarning from 'UI/form/UIErrorOrWarning'
 import UILabelForInput from 'UI/form/UILabelForInput'
-import injectSheet from 'UI/styles/jss'
+import injectSheet from '../../styles/jss'
 
 const getDateFromField = (fields) => {
   console.log('field', fields);
@@ -118,7 +118,7 @@ const styles = {
     border:  'none'
   }
 }
-const DateTimeMoment = (fields) => {
+const UIDateTimeMoment = (fields) => {
   console.log(fields);
   return (
     <div>

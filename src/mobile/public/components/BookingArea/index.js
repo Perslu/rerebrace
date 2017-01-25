@@ -2,8 +2,7 @@ import React from 'react'
 import { Field, reduxForm  } from 'redux-form';
 import { formValueSelector } from 'redux-form'
 import {connect} from 'react-redux';
-import DateTimeMoment from '../DateTimeMoment'
-import ProfileRatesForm from '../ProfileRatesForm'
+import UIDateTimeMoment from 'UI/form/UIDateTimeMoment'
 import UIFormInput from 'UI/form/UIFormInput'
 import UIButton from 'UI/button/UIButton'
 
@@ -39,8 +38,8 @@ const validate = values => {
   if (!values.place) {
     errors.place = 'Required'
   }
-  if (!values.dateTimeMoment) {
-    errors.dateTimeMoment = 'Required'
+  if (!values.UIDateTimeMoment) {
+    errors.UIDateTimeMoment = 'Required'
   }
   return errors
 };
@@ -87,7 +86,7 @@ const ChoosePlases = connect(
 const BookingArea = (props) => {
   return (
     <form onSubmit={props.handleSubmit(submit)} id='bookingForm' name="bookingForm">
-      <Field name="dateTimeMoment" component={DateTimeMoment} label="Date and time"/>
+      <Field name="UIDateTimeMoment" component={UIDateTimeMoment} label="Date and time"/>
       <Field name="name" type="text" component={UIFormInput} label="Name"/>
       <Field name="email" type="email" component={UIFormInput} label="E-mail"/>
       <Field name="phone" type="number" component={UIFormInput} label="Phone"/>
