@@ -203,13 +203,13 @@ devDependencies:
   #expect-immutable: 0.0.3 # https://github.com/hunterc/expect-immutable/tags
   enzyme: 2.4.1 # https://github.com/airbnb/enzyme/tags
   chai: 3.5.0 # https://github.com/chaijs/chai/tags
-  chai-enzyme: 0.5.2 # https://github.com/producthunt/chai-enzyme/tags
+  chai-enzyme: 0.6.1 # https://github.com/producthunt/chai-enzyme/tags
   #chai-immutable: 1.6.0 # https://github.com/astorije/chai-immutable/tags
   jsx-chai: 4.0.0 # https://github.com/bkonkle/jsx-chai/tags
   mocha: 3.2.0 # https://github.com/mochajs/mocha/releases
   redux-mock-store: 1.2.1 # https://github.com/arnaudbenard/redux-mock-store/blob/master/package.json
-
-
+  react-addons-test-utils: 15.4.2 # https://www.npmjs.com/package/react-addons-test-utils
+  babel-plugin-webpack-alias: 2.1.2 # https://www.npmjs.com/package/babel-plugin-webpack-alias
 
   # Documentation
 #  jsdoc: 3.4.3 # https://github.com/jsdoc3/jsdoc/tags
