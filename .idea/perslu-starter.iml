@@ -28,5 +28,6 @@
     <orderEntry type="library" name="ramda-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="recompose-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="reselect-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="express" level="project" />
   </component>
 </module>

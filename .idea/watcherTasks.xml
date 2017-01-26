@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectTasksOptions" suppressed-tasks="Babel">
-    <TaskOptions isEnabled="false">
-      <option name="arguments" value="$FileName$  --pretty" />
+    <TaskOptions isEnabled="true">
+      <option name="arguments" value="$FileName$ " />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
@@ -13,8 +13,8 @@
       <option name="outputFilters">
         <array />
       </option>
-      <option name="outputFromStdout" value="true" />
-      <option name="program" value="C:/Program Files/nodejs/yaml2json.cmd" />
+      <option name="outputFromStdout" value="false" />
+      <option name="program" value="$USER_HOME$/.nvm/versions/node/v6.9.4/bin/yaml2json" />
       <option name="scopeName" value="yaml scope" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$FileDir$" />

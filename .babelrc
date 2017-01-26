@@ -44,8 +44,8 @@
         "es2015",
         "react"
       ],
-      plugins: [
-        "istanbul"
+      "plugins": [
+        [ "babel-plugin-webpack-alias", { "config": "./internals/webpack.config.test.js" } ]
       ]
     }
   }
