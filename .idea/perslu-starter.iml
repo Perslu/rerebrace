@@ -12,23 +12,12 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="chai-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="express-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="jsdom-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="lodash-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="mocha-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="node-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="react-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="react-helmet-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="react-router-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="react-router-redux-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="redux-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="redux-form-DefinitelyTyped" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="Elixir SDK" level="project" />
-    <orderEntry type="library" name="phoenix-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="ramda-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="recompose-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="reselect-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="express" level="project" />
     <orderEntry type="library" name="react-redux-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="enzyme-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="chai-enzyme-DefinitelyTyped" level="application" />

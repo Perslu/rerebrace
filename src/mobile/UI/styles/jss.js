@@ -9,7 +9,14 @@ import unitDefaultPlugin from 'jss-default-unit'
 import expandPlugin from 'jss-expand'
 import nestedPlugin from 'jss-nested'
 
-const jss = createJss()
+let generateClassName = undefined
+if (process.env.NODE_ENV === 'test'){
+  generateClassName = (str, rule, sheet) => rule.name
+}
+
+const jss = createJss({
+  generateClassName: generateClassName
+})
 jss.use(globalPlugin())
 jss.use(extendPlugin())
 jss.use(nestedPlugin())

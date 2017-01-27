@@ -1,4 +1,4 @@
-import { assert } from 'chai'
+import { expect } from 'chai'
 import { shallow } from 'enzyme'
 import React from 'react'
 
@@ -9,8 +9,9 @@ import { Link } from 'react-router'
 
 describe('UILinkButton component', () => {
   it('renders component', () => {
-    const comp = shallow(<UILinkButton to="test"/>)
-    assert(comp.find(UIButton).length == 1, 'Should have UIButton')
-    assert(comp.find(Link).length == 1, 'Should have link')
+    const wrapper = shallow(<UILinkButton to="test">Home</UILinkButton>)
+    expect(wrapper.find(Link).exists()).to.be.true
+    //console.log(wrapper.debug())
+    expect(wrapper.find(Link).find(UIButton).exists()).to.be.true
   })
 })

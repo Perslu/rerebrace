@@ -1,4 +1,6 @@
 const path = require('path')
+const loaders = require('./loaders-es5')
+const nodeExternals = require('webpack-node-externals')
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
@@ -20,7 +22,23 @@ module.exports = {
       'UI': path.join(PATHS.mobile, '/UI'),
       'library-name': './library-folder/folder'
     }
-  }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        include: [
+          path.resolve(__dirname, "../src"),
+          path.resolve(__dirname, "../node_modules/react-icons"),
+        ],
+        use: [
+          { loader: 'babel-loader' },
+        ],
+      }
+    ],
+  },
+  target: 'node', // webpack should compile node compatible code
+  externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
   //resolve: {
   //  extensions: ['.js', '.jsx'],
   //  modules: [

@@ -24,7 +24,8 @@ scripts:
 #  start:dev: node src/server-entry.js
 #  lint: sass-lint -v -q -c ./sass-lint.yml && eslint 'src/**/*.js'
 #  test: npm run test:unit && npm run test:func
-  test:data: cross-env BABEL_ENV=test mocha --colors --bail --watch --inline-diffs --compilers js:babel-core/register "src/**/*.test-data.js"
+  test:data2: cross-env BABEL_ENV=test NODE_ENV=test mocha --colors --bail --watch --inline-diffs --compilers js:babel-core/register "src/**/*.test-data.js"
+  test:data: cross-env BABEL_ENV=test NODE_ENV=test mocha-webpack --colors --bail --watch --inline-diffs --webpack-config internals/webpack.config.test.js "src/**/*.test-data.js"
   # --debug 'src/**/*.test-data.js'
 #  test:func: npm run mocha -- 'tests/functional/**/*.func.js'
 #  test:e2e: npm run nightwatch -- --env local
@@ -121,18 +122,18 @@ devDependencies:
 
 
   # Webpack configuration
-  webpack: 2.2.0-rc.0 # https://github.com/webpack/webpack/releases
+  webpack: 2.2.0 # https://github.com/webpack/webpack/releases
   webpack-dev-middleware: 1.9.0 # https://github.com/webpack/webpack-dev-middleware/tags
-  webpack-hot-middleware: 2.13.2 # https://github.com/glenjamin/webpack-hot-middleware/tags
-  loader-utils: 0.2.16 # REQUIRES DIRECT SPECYFING DUE TO "BUG" IN WEBPACK 2.1.0-beta.25 https://github.com/webpack/loader-utils/releases
+  webpack-hot-middleware: 2.15.0 # https://github.com/glenjamin/webpack-hot-middleware/tags
+#  loader-utils: 0.2.16 # REQUIRES DIRECT SPECYFING DUE TO "BUG" IN WEBPACK 2.1.0-beta.25 https://github.com/webpack/loader-utils/releases
 
   # HMR
   react-hot-loader: 3.0.0-beta.6 # https://github.com/gaearon/react-hot-loader/tags
 #  express-hot-loader: 0.0.1 # https://www.npmjs.com/package/express-hot-loader
   # plugins
-  html-webpack-plugin: 2.24.1 # https://www.npmjs.com/package/html-webpack-plugin
+  html-webpack-plugin: 2.26.0 # https://www.npmjs.com/package/html-webpack-plugin
   extract-text-webpack-plugin: 2.0.0-beta.4 # https://github.com/webpack/extract-text-webpack-plugin/blob/master/package.json
-  happypack: 3.0.1 # https://github.com/amireh/happypack/blob/master/package.json
+  happypack: 3.0.2 # https://github.com/amireh/happypack/blob/master/package.json
   # loaders
   babel-loader: 6.2.10 # https://github.com/babel/babel-loader/tags - JS Files
   css-loader: 0.26.1 # https://github.com/webpack/css-loader/tags
@@ -197,19 +198,19 @@ devDependencies:
 #  istanbul: 0.4.5 # https://github.com/gotwarlost/istanbul/tags
 #  nyc: 8.3.1 # https://github.com/istanbuljs/nyc/tags - Istanbul CLI
 #  nightwatch: 0.9.8 # https://github.com/nightwatchjs/nightwatch/tags
-  sinon: 2.0.0-pre.2 # https://github.com/sinonjs/sinon/tags
-  expect: 1.20.2 # https://github.com/mjackson/expect/tags
-  expect-jsx: 2.6.0 # https://github.com/algolia/expect-jsx/tags
-  #expect-immutable: 0.0.3 # https://github.com/hunterc/expect-immutable/tags
-  enzyme: 2.4.1 # https://github.com/airbnb/enzyme/tags
+  sinon: 2.0.0-pre.5 # https://github.com/sinonjs/sinon/tags
+  enzyme: 2.7.1 # https://github.com/airbnb/enzyme/tags
   chai: 3.5.0 # https://github.com/chaijs/chai/tags
   chai-enzyme: 0.6.1 # https://github.com/producthunt/chai-enzyme/tags
-  #chai-immutable: 1.6.0 # https://github.com/astorije/chai-immutable/tags
-  jsx-chai: 4.0.0 # https://github.com/bkonkle/jsx-chai/tags
   mocha: 3.2.0 # https://github.com/mochajs/mocha/releases
   redux-mock-store: 1.2.1 # https://github.com/arnaudbenard/redux-mock-store/blob/master/package.json
   react-addons-test-utils: 15.4.2 # https://www.npmjs.com/package/react-addons-test-utils
   babel-plugin-webpack-alias: 2.1.2 # https://www.npmjs.com/package/babel-plugin-webpack-alias
+  mocha-webpack: 1.0.0-beta.1 # https://github.com/zinserjan/mocha-webpack
+  jsdom: 9.9.0 # https://github.com/tmpvar/jsdom/releases
+  webpack-node-externals: 1.5.4 # https://github.com/liady/webpack-node-externals
+
+
 
   # Documentation
 #  jsdoc: 3.4.3 # https://github.com/jsdoc3/jsdoc/tags
@@ -219,14 +220,14 @@ devDependencies:
 
   # System tools
   rimraf: 2.5.4 # https://github.com/isaacs/rimraf/tags
-  cross-env: 3.1.3 # https://github.com/kentcdodds/cross-env/tags
-  webpack-dev-server: 2.2.0-rc.0 # https://github.com/webpack/webpack-dev-server/tags
+  cross-env: 3.1.4 # https://github.com/kentcdodds/cross-env/tags
+  webpack-dev-server: 2.2.0 # https://github.com/webpack/webpack-dev-server/tags
   nodemon: 1.11.0 # https://github.com/remy/nodemon/tags
 
   # Code generating
-  plop: 1.7.3 # https://github.com/amwmedia/plop/tags
+  plop: 1.7.4 # https://github.com/amwmedia/plop/tags
   inquirer: 2.0.0 # https://github.com/SBoudrias/Inquirer.js/releases
-  inquirer-recursive: 0.0.4 # https://github.com/nathanloisel/inquirer-recursive
+  inquirer-recursive: 0.0.5 # https://github.com/nathanloisel/inquirer-recursive
 
 
   # Found somewhere, don't know what it does
