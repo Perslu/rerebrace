@@ -44,3 +44,4 @@ jspm_packages
 .idea/workspace.xml
 .idea/dictionaries/Sabirobe.xml
 .happypack/
+yarn.lock
