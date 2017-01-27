@@ -4,7 +4,7 @@ import {expect} from 'chai'
 import {shallow, render, mount} from 'enzyme'
 import UIButton from './index'
 
-describe('UIButton Component', () => {
+describe('UIButton component', () => {
   
   it('should render', () => {
     const wrapper = mount(<UIButton>test button</UIButton>)

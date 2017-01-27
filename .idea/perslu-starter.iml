@@ -21,5 +21,6 @@
     <orderEntry type="library" name="react-redux-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="enzyme-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="chai-enzyme-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="express" level="project" />
   </component>
 </module>
