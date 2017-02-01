@@ -5,25 +5,17 @@ import UILabelForInput from 'UI/form/UILabelForInput'
 import {inputStyle, classesForValidatedClass, formSection, formIcon, inputGroup} from 'UI/styles'
 import { injectSheet, lightBgColor, darkBgColor, darkFontColor, lightFontColor} from 'UI/styles'
 
-
-const UIFormInput = ({ input, type, label, name, meta: { touched, error, warning }, sheet: {classes}, leftAddon, rightAddon, primary, requiredFlag, ...props }) => {
+const UIFormInput = ({ input, type, label, name, meta: { touched, error, warning }, sheet: {classes}, leftAddon, rightAddon, primary, required, ...props }) => {
   const LeftAddon = leftAddon || (() => (<div></div>))
   const RightAddon = rightAddon || (() => (<div></div>))
   const bgcolor = (primary) ? classes.primary : classes.default
-
-    let textInput = null;
-
-   const handleClick = (e) =>{
-     //e.preventDefault();
-     //console.log(textInput.attributes['focus']);
-     //if(document.activeElement != textInput) {
+  let textInput = null;
+  const handleClick = () =>{
      textInput.focus()
-     //}
-    }
-
+  }
   return (<div>
     <div className={classes.section}>
-      <UILabelForInput label={label} name={name} requiredFlag={requiredFlag} primary={primary}/>
+      <UILabelForInput label={label} name={name} required={required} primary={primary}/>
       <div className={classes.inputGroup}>
         <LeftAddon onClick={handleClick} validatedClassname={classes[props.validatedClass]}/>
         <input {...input}
@@ -63,4 +55,14 @@ const styles = {
   ...classesForValidatedClass,
 }
 
+UIFormInput.propTypes = {
+  type    : React.PropTypes.string,
+  onClick : React.PropTypes.func,
+  onBlur  : React.PropTypes.func,
+  onFocus : React.PropTypes.func,
+  disabled: React.PropTypes.bool,
+  primary: React.PropTypes.bool,
+  // leftAddon: React.PropTypes.bool,
+  // rightAddon: React.PropTypes.bool,
+}
 export default injectSheet(styles)(UIValidationColorResult(UIFormInput))

@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import React from 'react'
 
 import UILinkButton from '.'
@@ -13,5 +13,9 @@ describe('UILinkButton component', () => {
     expect(wrapper.find(Link).exists()).to.be.true
     //console.log(wrapper.debug())
     expect(wrapper.find(Link).find(UIButton).exists()).to.be.true
+  })
+  it('should render prop to', () => {
+    const wrapper = mount (<UILinkButton to="test">Home</UILinkButton>)
+    expect(wrapper.find('Link').prop('to')).to.equal('test')
   })
 })

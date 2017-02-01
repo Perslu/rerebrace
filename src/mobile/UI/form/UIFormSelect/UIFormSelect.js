@@ -12,11 +12,11 @@ const MakeOptions = (options) => {
   return option
 }
 
-const UIFormSelect = ({input, label, name, disabled, options, type, value, meta: {touched, error, warning}, sheet: {classes}, primary, requiredFlag, ...props}) => {
+const UIFormSelect = ({input, label, name, disabled, options, type, value, meta: {touched, error, warning}, sheet: {classes}, primary, required, ...props}) => {
   const bgcolor = (primary) ? classes.primary : classes.default
   return (
     <div className={classes.section}>
-      <UILabelForInput label={label} name={name} requiredFlag={requiredFlag} primary={primary}/>
+      <UILabelForInput label={label} name={name} required={required} primary={primary}/>
       <div className={classes.inputGroup}>
         <select {...input } className={classes[props.validatedClass] + ' ' + classes.select + ' ' + bgcolor}>
           {MakeOptions(options)}
@@ -44,5 +44,12 @@ const styles = {
   ...classesForValidatedClass,
 }
 
+UIFormSelect.propTypes = {
+  onClick : React.PropTypes.func,
+  onBlur  : React.PropTypes.func,
+  onFocus : React.PropTypes.func,
+  disabled: React.PropTypes.bool,
+  primary: React.PropTypes.bool,
+}
 export default injectSheet(styles)(UIValidationColorResult(UIFormSelect))
 

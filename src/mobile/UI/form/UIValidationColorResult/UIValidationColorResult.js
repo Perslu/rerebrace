@@ -6,10 +6,10 @@ const  UIValidationColorResult = (Comp) => (props) => {
   return <Comp {...props} validatedClass={validatedClass} />
 };
 
-//UIValidationColorResult.propTypes = {
-//  touched: React.PropTypes.bool,
-//  invalid: React.PropTypes.bool
-//};
+UIValidationColorResult.propTypes = {
+ touched: React.PropTypes.bool,
+ invalid: React.PropTypes.bool
+};
 
 
 

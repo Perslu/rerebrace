@@ -40,6 +40,7 @@ UIButton.propTypes = {
   onFocus : React.PropTypes.func,
   disabled: React.PropTypes.bool,
   primary: React.PropTypes.bool,
+  children: React.PropTypes.string.isRequired,
 }
 export default injectSheet(styles)(UIButton)
 

@@ -26,13 +26,13 @@ const PassComponent = (props) => {
 const ContactForm = (props) => {
   return (<div>
     <form onSubmit={props.handleSubmit(submit)} id='loginForm' name="form">
-      <Field component={UIFormInput} type="text" name="email"  label="Email" requiredFlag primary
+      <Field component={UIFormInput} type="text" name="email"  label="Email" required primary
              leftAddon={(props) => <UIFormInputIconAddon {...props} icon={EmailIcon} left/>}
              rightAddon={(props) => <UIFormInputIconAddon {...props} icon={AppleIcon} right/>}
       />
-      <Field component={UIFormSelect} primary name="selectInput" label="Select subject" options={arr} requiredFlag/>
-      <Field component={UIFormInput} primary type="text" name="subject" label="Subject" placeholder={props.selectInput} requiredFlag/>
-      <Field component={UIFormTextarea} primary name="textarea"  cols="20" rows="5" label="Your message" requiredFlag/>
+      <Field component={UIFormSelect} primary name="selectInput" label="Select subject" options={arr} required/>
+      <Field component={UIFormInput} primary type="text" name="subject" label="Subject" placeholder={props.selectInput} required/>
+      <Field component={UIFormTextarea} primary name="textarea"  cols="20" rows="5" label="Your message" required/>
       <UIButton primary type='submit'>Send Message</UIButton>
     </form>
   </div>);

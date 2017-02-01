@@ -18,12 +18,12 @@ const styles = {
   }
 }
 
-//UIErrorOrWarning.propTypes = {
-//  meta: React.PropTypes.shape({
-//    touched: React.PropTypes.bool,
-//    error: React.PropTypes.string,
-//    warning: React.PropTypes.string
-//  })
-//};
+UIErrorOrWarning.propTypes = {
+ meta: React.PropTypes.shape({
+   touched: React.PropTypes.bool,
+   error: React.PropTypes.string,
+   warning: React.PropTypes.string
+ })
+};
 
 export default injectSheet(styles) (UIErrorOrWarning)
