@@ -1,0 +1,7 @@
+--require source-map-support/register
+--ui bdd
+--colors
+--bail
+--inline-diffs
+--webpack-config internals/webpack.config.test.js
+"src/**/*.test-data.js"

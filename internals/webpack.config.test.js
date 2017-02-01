@@ -17,6 +17,11 @@ const PATHS = {
 }
 
 module.exports = {
+  output: {
+    // sourcemap support for IntelliJ/Webstorm
+    devtoolModuleFilenameTemplate: '[absolute-resource-path]',
+    devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]'
+  },
   resolve: {
     alias: {
       'UI': path.join(PATHS.mobile, '/UI'),
@@ -39,6 +44,7 @@ module.exports = {
   },
   target: 'node', // webpack should compile node compatible code
   externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
+  devtool: 'source-map',
   //resolve: {
   //  extensions: ['.js', '.jsx'],
   //  modules: [

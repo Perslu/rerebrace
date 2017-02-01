@@ -14,6 +14,10 @@ scripts:
   "build:dll": webpack --config internals/dll-bundles.webpack.config.js
 #  "start:chat": webpack-dev-server --config internals/chat.webpack.config.js
   "start:chat": nodemon --verbose --no-stdin --watch src/server --watch internals src/apps/chat/backend/file-server/app.js --exec babel-node --presets es2015,react
+#  coverage: babel-node node_modules/isparta/bin/isparta cover --report text node_modules/mocha/bin/_mocha -- --reporter dot "src/**/*.test-data.js"
+#  coverage: cross-env BABEL_ENV=test NODE_ENV=test babel-node node_modules/isparta/bin/isparta cover --report text --report html -i "src/**/*.js" node_modules/mocha/bin/_mocha
+#  nyc: cross-env BABEL_ENV=test NODE_ENV=test nyc npm run test:data3
+#  nyc2: cross-env BABEL_ENV=test NODE_ENV=test nyc mocha-webpack
 #  start: webpack-dev-server --history-api-fallback --progress --port 3000
 #  start: nodemon --debug --verbose --no-stdin --watch --exec babel-node server src/server/app.js
 #  prestart: npm run build
@@ -24,20 +28,20 @@ scripts:
 #  start:dev: node src/server-entry.js
 #  lint: sass-lint -v -q -c ./sass-lint.yml && eslint 'src/**/*.js'
 #  test: npm run test:unit && npm run test:func
-  test:data2: cross-env BABEL_ENV=test NODE_ENV=test mocha --colors --bail --watch --inline-diffs --compilers js:babel-core/register "src/**/*.test-data.js"
-  test:data: cross-env BABEL_ENV=test NODE_ENV=test mocha-webpack --colors --bail --watch --inline-diffs --webpack-config internals/webpack.config.test.js "src/**/*.test-data.js"
+#  test:data2: cross-env BABEL_ENV=test NODE_ENV=test mocha --watch
+  test:data: cross-env BABEL_ENV=test NODE_ENV=test mocha-webpack --watch # backward compatibility
+  test:watch: cross-env BABEL_ENV=test NODE_ENV=test mocha-webpack --watch
+  test: cross-env BABEL_ENV=test NODE_ENV=test mocha-webpack
+#  test:data3: cross-env BABEL_ENV=test NODE_ENV=test mocha-webpack
   # --debug 'src/**/*.test-data.js'
 #  test:func: npm run mocha -- 'tests/functional/**/*.func.js'
 #  test:e2e: npm run nightwatch -- --env local
 #  test:e2e-smoke: npm run nightwatch -- --env chrome_win --tag smoke
 #  test:e2e-xb: npm run nightwatch -- --env safari_osx,chrome_osx,firefox_win,firefox_osx,IE10,IE11,edge
 #  nightwatch: nightwatch -o ./tests/e2e/tests_output -c ./tests/config/nightwatch.conf.js
-#  mocha: 'mocha --opts ./tests/config/mocha.opts '
 
-pre-commit: lint
-pre-push: test
-
-
+#pre-commit: lint
+#pre-push: test
 
 
 
@@ -47,15 +51,15 @@ dependencies:
   ### Frontend
 
   # Basic React
-  react: 15.4.1 # https://github.com/facebook/react/tags
-  react-dom: 15.4.1 # https://www.npmjs.com/package/react-dom
+  react: 15.4.2 # https://github.com/facebook/react/tags
+  react-dom: 15.4.2 # https://www.npmjs.com/package/react-dom
 
 
   # Redux
   redux: 3.6.0 # https://github.com/reactjs/redux/tags
-  react-redux: 5.0.1 # https://github.com/reactjs/react-redux/tags
-  redux-thunk: 2.1.0 # https://github.com/gaearon/redux-thunk/releases
-  redux-form: 6.3.2 # https://www.npmjs.com/package/redux-form
+  react-redux: 5.0.2 # https://github.com/reactjs/react-redux/tags
+  redux-thunk: 2.2.0 # https://github.com/gaearon/redux-thunk/releases
+  redux-form: 6.5.0 # https://www.npmjs.com/package/redux-form
 #  redux-promise-middleware: 4.2.0 # https://github.com/pburtchaell/redux-promise-middleware/releases
 
 
@@ -65,27 +69,25 @@ dependencies:
 
   # Utilities
   reselect: 2.5.4 # https://github.com/reactjs/reselect/tags
-  ramda: 0.22.1 # https://github.com/ramda/ramda/releases
-  most: 1.1.1 # https://github.com/cujojs/most/releases
+  ramda: 0.23.0 # https://github.com/ramda/ramda/releases
+  most: 1.2.1 # https://github.com/cujojs/most/releases
   redux-most : 0.1.8 # https://github.com/joshburgess/redux-most/blob/master/package.json
   axios: 0.15.3 # https://github.com/mzabriskie/axios/releases
 
   # Useful components
-  react-tabs: 0.8.0 # https://github.com/reactjs/react-tabs/tags
+  react-tabs: 0.8.2 # https://github.com/reactjs/react-tabs/tags
   react-masonry-layout: 0.2.3 # https://github.com/scarletsky/react-masonry-layout
-  nuka-carousel: 2.0.3 # https://github.com/FormidableLabs/nuka-carousel/releases
-  react-icons: 2.2.1 # https://github.com/gorangajic/react-icons/releases
+  nuka-carousel: 2.0.4 # https://github.com/FormidableLabs/nuka-carousel/releases
+  react-icons: 2.2.3 # https://github.com/gorangajic/react-icons/releases
   moment: 2.17.1 # https://github.com/moment/moment/releases
 
   # Other utilities
   chalk: 1.1.3 # https://github.com/chalk/chalk/releases
-  redbox-react: 1.3.1 # https://www.npmjs.com/package/redbox-react
-#  faker: 3.1.0 # https://github.com/Marak/faker.js/releases
+  redbox-react: 1.3.3 # https://www.npmjs.com/package/redbox-react
 
   ### CSS
   normalize.css: 5.0.0 # https://github.com/necolas/normalize.css/releases
-  #tachyons: 4.5.2 # https://github.com/tachyons-css/tachyons/releases
-  react-jss: 5.1.0 # https://github.com/cssinjs/react-jss/releases
+  react-jss: 5.2.0 # https://github.com/cssinjs/react-jss/releases
 
 
   #Phoenix
@@ -103,21 +105,21 @@ dependencies:
 devDependencies:
 
   # Babel configuration
-  babel-cli: 6.18.0 # https://github.com/babel/babel/tree/master/packages/babel-cli
-  babel-core: 6.20.0 # https://github.com/babel/babel/tree/master/packages/babel-core
-  babel-register: 6.18.0 # https://www.npmjs.com/package/babel-register
+  babel-cli: 6.22.2 # https://github.com/babel/babel/tree/master/packages/babel-cli
+  babel-core: 6.22.1 # https://github.com/babel/babel/tree/master/packages/babel-core
+  babel-register: 6.22.0 # https://www.npmjs.com/package/babel-register
   # Presets
-  babel-preset-es2015: 6.18.0 # https://github.com/babel/babel/tree/master/packages/babel-preset-es2015
-  babel-preset-react: 6.16.0 # https://github.com/babel/babel/tree/master/packages/babel-preset-react
+  babel-preset-es2015: 6.22.0 # https://github.com/babel/babel/tree/master/packages/babel-preset-es2015
+  babel-preset-react: 6.22.0 # https://github.com/babel/babel/tree/master/packages/babel-preset-react
   # Other
   #babel-eslint: 7.0.0 - dropped because standard eslint is enough # https://github.com/babel/babel-eslint/tags
   # Plugins
-  babel-plugin-transform-es2015-destructuring: 6.18.0 # https://www.npmjs.com/package/babel-plugin-transform-es2015-destructuring
-  babel-plugin-transform-object-rest-spread: 6.20.1 # https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread
+  babel-plugin-transform-es2015-destructuring: 6.22.0 # https://www.npmjs.com/package/babel-plugin-transform-es2015-destructuring
+  babel-plugin-transform-object-rest-spread: 6.22.0 # https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread
 #  babel-plugin-istanbul: 2.0.2 # https://github.com/istanbuljs/babel-plugin-istanbul/tags
   # production only
-  babel-plugin-transform-react-constant-elements: 6.9.1 # https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-constant-elements
-  babel-plugin-transform-react-inline-elements: 6.8.0 # https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-inline-elements
+  babel-plugin-transform-react-constant-elements: 6.22.0 # https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-constant-elements
+  babel-plugin-transform-react-inline-elements: 6.22.0 # https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-inline-elements
   babel-plugin-transform-react-remove-prop-types: 0.2.11 # https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types/tags
 
 
@@ -141,7 +143,7 @@ devDependencies:
 #  postcss-loader: 0.13.0 # https://github.com/postcss/postcss-loader/tags
   file-loader: 0.9.0 # https://github.com/webpack/file-loader/tags
   url-loader: 0.5.7 # https://github.com/webpack/url-loader/blob/master/package.json
-  image-webpack-loader: 3.1.0 # https://github.com/tcoopman/image-webpack-loader/releases
+  image-webpack-loader: 3.2.0 # https://github.com/tcoopman/image-webpack-loader/releases
   expose-loader: 0.7.1 # https://github.com/webpack/expose-loader/blob/master/package.json
 
 
@@ -162,23 +164,23 @@ devDependencies:
 
 
   # Linting & style guides
-  eslint: 3.12.2 # https://github.com/eslint/eslint/tags
-  eslint-plugin-react: 6.8.0 # https://github.com/yannickcr/eslint-plugin-react/tags
-  eslint-plugin-flowtype: 2.29.1 # https://github.com/gajus/eslint-plugin-flowtype
+  eslint: 3.14.1 # https://github.com/eslint/eslint/tags
+  eslint-plugin-react: 6.9.0 # https://github.com/yannickcr/eslint-plugin-react/tags
+  eslint-plugin-flowtype: 2.30.0 # https://github.com/gajus/eslint-plugin-flowtype
   eslint-plugin-jsdoc: 2.4.0 # https://github.com/gajus/eslint-plugin-jsdoc/tags
   eslint-plugin-xss: 0.1.8 # https://github.com/Rantanen/eslint-plugin-xss/blob/master/package.json
   eslint-plugin-security: 1.2.0 # https://github.com/nodesecurity/eslint-plugin-security/tags
   eslint-plugin-new-with-error: 1.1.0 # https://github.com/Trott/eslint-plugin-new-with-error/blob/master/package.json
   #eslint-plugin-immutable: 1.0.0 # https://github.com/jhusain/eslint-plugin-immutable/blob/master/package.json
-  eslint-plugin-fp: 2.2.0 # https://github.com/jfmengels/eslint-plugin-fp/tags
-  eslint-plugin-node: 2.1.2 # https://github.com/mysticatea/eslint-plugin-node/tags
-  eslint-plugin-mocha: 4.6.0 # https://github.com/lo1tuma/eslint-plugin-mocha/tags
+  eslint-plugin-fp: 2.3.0 # https://github.com/jfmengels/eslint-plugin-fp/tags
+  eslint-plugin-node: 3.0.5 # https://github.com/mysticatea/eslint-plugin-node/tags
+  eslint-plugin-mocha: 4.8.0 # https://github.com/lo1tuma/eslint-plugin-mocha/tags
   eslint-plugin-chai-expect: 1.1.1 # https://github.com/Turbo87/eslint-plugin-chai-expect/tags
-  eslint-plugin-jsx-a11y: 2.2.2 # https://github.com/evcohen/eslint-plugin-jsx-a11y/tags
-  eslint-plugin-import: 2.0.0 # https://github.com/benmosher/eslint-plugin-import/tags - required by airbnb config
-  eslint-import-resolver-webpack: 0.6.0 # https://github.com/benmosher/eslint-plugin-import/blob/master/resolvers/webpack/package.json
-  eslint-import-resolver-node: 0.2.3 # https://github.com/benmosher/eslint-plugin-import/blob/master/resolvers/node/package.json
-  eslint-config-airbnb: 12.0.0
+  eslint-plugin-jsx-a11y: 3.0.2 # https://github.com/evcohen/eslint-plugin-jsx-a11y/tags
+  eslint-plugin-import: 2.2.0 # https://github.com/benmosher/eslint-plugin-import/tags - required by airbnb config
+  eslint-import-resolver-webpack: 0.8.1 # https://github.com/benmosher/eslint-plugin-import/blob/master/resolvers/webpack/package.json
+  eslint-import-resolver-node: 0.3.0 # https://github.com/benmosher/eslint-plugin-import/blob/master/resolvers/node/package.json
+  eslint-config-airbnb: 14.0.0
 #  stylelint: 7.3.1 # https://github.com/stylelint/stylelint/tags
 #  stylelint-config-standard: 13.0.2 # https://github.com/stylelint/stylelint-config-standard/tags
 
@@ -207,8 +209,11 @@ devDependencies:
   react-addons-test-utils: 15.4.2 # https://www.npmjs.com/package/react-addons-test-utils
   babel-plugin-webpack-alias: 2.1.2 # https://www.npmjs.com/package/babel-plugin-webpack-alias
   mocha-webpack: 1.0.0-beta.1 # https://github.com/zinserjan/mocha-webpack
-  jsdom: 9.9.0 # https://github.com/tmpvar/jsdom/releases
+  jsdom: 9.9.1 # https://github.com/tmpvar/jsdom/releases
   webpack-node-externals: 1.5.4 # https://github.com/liady/webpack-node-externals
+  source-map-support: 0.4.11 # https://github.com/evanw/node-source-map-support/releases
+#  isparta: 4.0.0 # https://github.com/douglasduteil/isparta/releases
+#  babel-plugin-istanbul: 3.1.2 # https://github.com/istanbuljs/babel-plugin-istanbul/releases
 
 
 
@@ -248,3 +253,10 @@ engines:
 #  extends: stylelint-config-standard
 #  rules:
 #    indentation: tab
+#
+#nyc:
+#  "include": ["src/**/*.js"]
+#  "exclude": ["src/**/*.test-data.js"]
+#  "require": ["babel-register"]
+#  "sourceMap": false
+#  "instrument": false
